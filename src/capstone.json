@@ -1,0 +1,59 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Lisbon",
+      "attraction": [
+        { "name": "Alfama", "image": "./images/Alfama.jpg" },
+        { "name": "Bairro Alto", "image": "./images/Bairro_Alto.jpg" },
+        {
+          "name": "Catedral Sé Patriarcal",
+          "image": "./images/Catedral_Sé_Patriarcal.jpg"
+        },
+        {
+          "name": "Elevador de Santa Justa",
+          "image": "./images/Elevador_de_Santa_Justa.jpg"
+        },
+        {
+          "name": "Padrão dos Descobrimentos",
+          "image": "./images/Padrão_dos_Descobrimentos.jpg"
+        },
+        {
+          "name": "Ponte 25 de Abril",
+          "image": "./images/Ponte_25_de_Abril.jpg"
+        },
+        {
+          "name": "Praça do Comércio",
+          "image": "./images/Praça_do_Comércio.jpg"
+        },
+        { "name": "Torre de Belém", "image": "./images/Torre_de_Belém.jpg" },
+        { "name": "Tram 28", "image": "./images/Tram_28.jpg" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "New York",
+      "attraction": [
+        { "name": "Brooklyn Bridge", "image": "./images/Brooklyn_Bridge.jpg" },
+        { "name": "Central Park", "image": "./images/Central_Park.jpg" },
+        {
+          "name": "Empire State Building",
+          "image": "./images/Empire_State_Building.jpg"
+        },
+        {
+          "name": "Flatiron Building",
+          "image": "./images/Flatiron_Building.jpg"
+        },
+        {
+          "name": "One World Trade Center",
+          "image": "./images/One_World_Trade_Center.jpg"
+        },
+        {
+          "name": "Statue of Liberty",
+          "image": "./images/Statue_of_Liberty.jpg"
+        },
+        { "name": "Times Square", "image": "./images/Times_Square.jpg" }
+      ]
+    }
+  ]
+}
