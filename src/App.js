@@ -9,7 +9,7 @@ export default function App() {
         <CardLayout key={id}>
           <h2>{name}</h2>
           {attraction.map(({ name, image }) => (
-            <AttractionCard name={name} image={image} />
+            <AttractionCard key={name} name={name} image={image} />
           ))}
         </CardLayout>
       ))}

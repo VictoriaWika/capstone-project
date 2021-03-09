@@ -7,7 +7,8 @@ export default createGlobalStyle`
 
 body {
   font-family: sans-serif;
-  font-size: 112.5%;
+  /* by setting font-size in %, there is no interferance with potential user settings */
+  font-size: 112.5%; 
   margin: 0 20px;
 }
 `

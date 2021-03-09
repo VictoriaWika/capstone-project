@@ -4,7 +4,7 @@ export default function AttractionCard({ name, image }) {
   return (
     <Card key={name}>
       <AttractionName>{name}</AttractionName>
-      <Image src={image} width="300" height="auto" alt=""></Image>
+      <Image src={image} width="300" alt=""></Image>
     </Card>
   )
 }
