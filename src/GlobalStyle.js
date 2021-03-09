@@ -12,13 +12,8 @@ body {
   margin: 20px;
 }
 
-input,
-button {
+input {
   font-size: 90%;
   padding: 4px;
-}
-
-button {
-  padding: 5px 10px;
 }
 `

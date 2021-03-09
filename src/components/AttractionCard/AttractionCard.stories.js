@@ -1,5 +1,5 @@
 import AttractionCard from './AttractionCard'
-import imageFile from './Alfama.jpg'
+import imageFile from './test.jpg'
 
 export default {
   title: 'Components',

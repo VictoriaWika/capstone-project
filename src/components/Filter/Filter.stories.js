@@ -6,5 +6,11 @@ export default {
   component: Filter,
 }
 
-const onChange = action('onChange')
-export const DefaultFilter = () => Filter(onChange)
+const DefaultFilter = args => <Filter {...args} />
+
+export const PrimaryFilter = DefaultFilter.bind({})
+
+PrimaryFilter.args = {
+  setUserInput: action('onChange'),
+  userInput: '',
+}

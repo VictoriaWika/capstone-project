@@ -8,14 +8,14 @@ export default function Filter({ userInput, setUserInput }) {
         <input
           value={userInput}
           onChange={event => setUserInput(event.target.value)}
-          placeholder="Times Square..."
+          placeholder="Ca..."
         />
       </Label>
     </form>
   )
 }
 
-const Label = styled.form`
+const Label = styled.label`
   display: grid;
   gap: 5px;
 `

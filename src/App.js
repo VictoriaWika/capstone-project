@@ -9,8 +9,8 @@ export default function App() {
 
   return (
     <>
-      <Filter userInput={userInput} setUserInput={setUserInput} />
       <AppLayout>
+        <Filter userInput={userInput} setUserInput={setUserInput} />
         {cities.map(({ name, attraction, id }) => (
           <CardLayout key={id}>
             <h2>{name}</h2>
