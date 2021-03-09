@@ -4,7 +4,7 @@ export default function AttractionCard({ name, image }) {
   return (
     <Card key={name}>
       <AttractionName>{name}</AttractionName>
-      <Image src={image} width="300" alt=""></Image>
+      <Image src={image} width="335" alt=""></Image>
     </Card>
   )
 }
@@ -15,7 +15,7 @@ const Card = styled.div`
 const AttractionName = styled.div`
   position: absolute;
   text-align: center;
-  width: 300px;
+  width: 335px;
   bottom: 4px;
   left: 0;
   border-bottom-left-radius: 24px;
