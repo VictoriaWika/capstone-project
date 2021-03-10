@@ -15,7 +15,7 @@ const Card = styled.div`
 const AttractionName = styled.div`
   position: absolute;
   text-align: center;
-  width: 335px;
+  width: 100%;
   bottom: 4px;
   left: 0;
   border-bottom-left-radius: 24px;

@@ -7,9 +7,11 @@ export default createGlobalStyle`
 
 body {
   font-family: sans-serif;
-  /* by setting font-size in %, there is no interferance with potential user settings */
+  /* by setting font-size in %, 
+  there is no interferance with potential user settings */
   font-size: 112.5%; 
-  margin: 20px;
+  padding: 20px;
+  margin: 0;
 }
 
 input {
