@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 
 export default function Filter({ userInput, setUserInput }) {
   return (
-    <form>
+    <Form>
       <Label>
         Sightseeing attraction:
         <input
@@ -11,9 +11,13 @@ export default function Filter({ userInput, setUserInput }) {
           placeholder="Ca..."
         />
       </Label>
-    </form>
+    </Form>
   )
 }
+
+const Form = styled.form`
+  width: 335px;
+`
 
 const Label = styled.label`
   display: grid;

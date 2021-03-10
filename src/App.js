@@ -6,6 +6,7 @@ import Filter from './components/Filter/Filter'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
+  const [likedPlaces, setLikedPlaces] = useState([])
 
   return (
     <>
@@ -19,13 +20,32 @@ export default function App() {
                 item.name.toLowerCase().includes(userInput.toLowerCase())
               )
               .map(({ name, image }) => (
-                <AttractionCard key={name} name={name} image={image} />
+                <AttractionCard
+                  key={name}
+                  name={name}
+                  image={image}
+                  likePlace={likePlace}
+                  likedPlaces={likedPlaces}
+                />
               ))}
           </CardLayout>
         ))}
       </AppLayout>
     </>
   )
+
+  function likePlace(currentId) {
+    let newArray
+
+    if (likedPlaces.includes(currentId)) {
+      newArray = likedPlaces.filter(id => id !== currentId)
+    } else {
+      newArray = [...likedPlaces, currentId]
+    }
+
+    setLikedPlaces(newArray)
+    console.log(newArray)
+  }
 }
 const AppLayout = styled.div`
   display: grid;
