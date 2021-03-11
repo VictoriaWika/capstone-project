@@ -24,7 +24,7 @@ export default function App() {
                   key={name}
                   name={name}
                   image={image}
-                  likePlace={likePlace}
+                  onLike={handleLikePlace}
                   likedPlaces={likedPlaces}
                 />
               ))}
@@ -34,17 +34,16 @@ export default function App() {
     </>
   )
 
-  function likePlace(currentId) {
+  function handleLikePlace(name) {
     let newArray
 
-    if (likedPlaces.includes(currentId)) {
-      newArray = likedPlaces.filter(id => id !== currentId)
+    if (likedPlaces.includes(name)) {
+      newArray = likedPlaces.filter(likedPlace => likedPlace !== name)
     } else {
-      newArray = [...likedPlaces, currentId]
+      newArray = [...likedPlaces, name]
     }
 
     setLikedPlaces(newArray)
-    console.log(newArray)
   }
 }
 const AppLayout = styled.div`
