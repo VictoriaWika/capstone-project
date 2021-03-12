@@ -3,6 +3,7 @@
     {
       "id": 1,
       "name": "Lisbon",
+      "image": "./images/Lisbon.webp",
       "attraction": [
         { "name": "Alfama", "image": "./images/Alfama.webp" },
         { "name": "Bairro Alto", "image": "./images/Bairro_Alto.webp" },
@@ -33,6 +34,7 @@
     {
       "id": 2,
       "name": "New York",
+      "image": "./images/New_York.webp",
       "attraction": [
         { "name": "Brooklyn Bridge", "image": "./images/Brooklyn_Bridge.webp" },
         { "name": "Central Park", "image": "./images/Central_Park.webp" },
