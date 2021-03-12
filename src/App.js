@@ -17,7 +17,7 @@ export default function App() {
             <h2>{name}</h2>
             {attraction
               .filter(item =>
-                item.name.toLowerCase().includes(userInput.toLowerCase())
+                item.name.toLowerCase().includes(userInput.toLowerCase().trim())
               )
               .map(({ name, image }) => (
                 <AttractionCard

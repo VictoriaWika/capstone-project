@@ -8,7 +8,7 @@ export default function Filter({ userInput, setUserInput }) {
         <input
           value={userInput}
           onChange={event => setUserInput(event.target.value)}
-          placeholder="Ca..."
+          placeholder="Times Square"
         />
       </Label>
     </Form>
