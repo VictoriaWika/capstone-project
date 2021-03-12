@@ -2,18 +2,22 @@ import styled from 'styled-components/macro'
 
 export default function Filter({ userInput, setUserInput }) {
   return (
-    <form>
+    <Form>
       <Label>
         Sightseeing attraction:
         <input
           value={userInput}
           onChange={event => setUserInput(event.target.value)}
-          placeholder="Ca..."
+          placeholder="Times Square"
         />
       </Label>
-    </form>
+    </Form>
   )
 }
+
+const Form = styled.form`
+  width: 335px;
+`
 
 const Label = styled.label`
   display: grid;

@@ -4,55 +4,55 @@
       "id": 1,
       "name": "Lisbon",
       "attraction": [
-        { "name": "Alfama", "image": "./images/Alfama.jpg" },
-        { "name": "Bairro Alto", "image": "./images/Bairro_Alto.jpg" },
+        { "name": "Alfama", "image": "./images/Alfama.webp" },
+        { "name": "Bairro Alto", "image": "./images/Bairro_Alto.webp" },
         {
           "name": "Catedral Sé Patriarcal",
-          "image": "./images/Catedral_Sé_Patriarcal.jpg"
+          "image": "./images/Catedral_Sé_Patriarcal.webp"
         },
         {
           "name": "Elevador de Santa Justa",
-          "image": "./images/Elevador_de_Santa_Justa.jpg"
+          "image": "./images/Elevador_de_Santa_Justa.webp"
         },
         {
           "name": "Padrão dos Descobrimentos",
-          "image": "./images/Padrão_dos_Descobrimentos.jpg"
+          "image": "./images/Padrão_dos_Descobrimentos.webp"
         },
         {
           "name": "Ponte 25 de Abril",
-          "image": "./images/Ponte_25_de_Abril.jpg"
+          "image": "./images/Ponte_25_de_Abril.webp"
         },
         {
           "name": "Praça do Comércio",
-          "image": "./images/Praça_do_Comércio.jpg"
+          "image": "./images/Praça_do_Comércio.webp"
         },
-        { "name": "Torre de Belém", "image": "./images/Torre_de_Belém.jpg" },
-        { "name": "Tram 28", "image": "./images/Tram_28.jpg" }
+        { "name": "Torre de Belém", "image": "./images/Torre_de_Belém.webp" },
+        { "name": "Tram 28", "image": "./images/Tram_28.webp" }
       ]
     },
     {
       "id": 2,
       "name": "New York",
       "attraction": [
-        { "name": "Brooklyn Bridge", "image": "./images/Brooklyn_Bridge.jpg" },
-        { "name": "Central Park", "image": "./images/Central_Park.jpg" },
+        { "name": "Brooklyn Bridge", "image": "./images/Brooklyn_Bridge.webp" },
+        { "name": "Central Park", "image": "./images/Central_Park.webp" },
         {
           "name": "Empire State Building",
-          "image": "./images/Empire_State_Building.jpg"
+          "image": "./images/Empire_State_Building.webp"
         },
         {
           "name": "Flatiron Building",
-          "image": "./images/Flatiron_Building.jpg"
+          "image": "./images/Flatiron_Building.webp"
         },
         {
           "name": "One World Trade Center",
-          "image": "./images/One_World_Trade_Center.jpg"
+          "image": "./images/One_World_Trade_Center.webp"
         },
         {
           "name": "Statue of Liberty",
-          "image": "./images/Statue_of_Liberty.jpg"
+          "image": "./images/Statue_of_Liberty.webp"
         },
-        { "name": "Times Square", "image": "./images/Times_Square.jpg" }
+        { "name": "Times Square", "image": "./images/Times_Square.webp" }
       ]
     }
   ]
