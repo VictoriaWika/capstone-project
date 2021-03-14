@@ -17,11 +17,11 @@ export default function CreateForm({ onCreateTrip }) {
       </label>
       <label>
         Start date
-        <Input required name="startDate" type="date"></Input>
+        <Input required name="startDate" type="date" />
       </label>
       <label>
         End date
-        <Input required name="endDate" type="date"></Input>
+        <Input required name="endDate" type="date" />
       </label>
       <Button>Create Trip</Button>
     </Form>
@@ -56,6 +56,7 @@ const Select = styled.select`
   box-shadow: 1px 1px 2px #eee;
   width: 100%;
   font-family: inherit;
-  padding: 3px;
+  padding: 2px;
+  padding-top: 5px;
   font-size: inherit;
 `
