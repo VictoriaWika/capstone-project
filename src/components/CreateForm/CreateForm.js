@@ -9,9 +9,9 @@ export default function CreateForm({ onCreateTrip }) {
       <Heading>Plan your Trip</Heading>
       <label>
         City
-        <Select required name="city">
+        <Select required name="city" data-testid="select">
           {cities.map(({ name, id }) => (
-            <option data-testid="select-option" key={id}>
+            <option key={id} data-testid={name}>
               {name}
             </option>
           ))}

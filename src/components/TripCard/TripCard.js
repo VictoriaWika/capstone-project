@@ -20,7 +20,6 @@ const Card = styled.div`
   gap: 10px;
   position: relative;
 `
-
 const Heading = styled.h3`
   margin: 0;
 `
