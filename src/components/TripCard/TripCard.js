@@ -5,18 +5,11 @@ export default function TripCard({ city, startDate, endDate }) {
     <Card>
       <Heading>{city}</Heading>
       <DateWrapper>
-        {/* <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date> */}
-        <Date>{startDate}</Date>
-        {/* <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date> */}
-        <Date>{endDate}</Date>
+        <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date>
+        <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date>
       </DateWrapper>
     </Card>
   )
-  // function javascript(startDate, endDate) {
-  //   let endDate.  PROBLEM: NaN!!!!!
-  //   let oned = 24 * 60 * 60 * 1000
-  //   return Math.ceil((endDate - startDate) / oned)
-  // }
 }
 
 const Card = styled.div`
