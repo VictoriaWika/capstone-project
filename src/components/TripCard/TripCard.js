@@ -37,7 +37,6 @@ const Date = styled.div`
   justify-content: space-between;
   width: 80px;
   background: #eee;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px 0 0 10px;
   padding: 10px;
 `

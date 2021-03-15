@@ -5,8 +5,4 @@ export default {
   component: Button,
 }
 
-const DefaultButton = () => <Button>Create Trip</Button>
-
-export const PrimaryButton = DefaultButton.bind({})
-
-PrimaryButton.args = {}
+export const PrimaryButton = () => <Button>Create Trip</Button>
