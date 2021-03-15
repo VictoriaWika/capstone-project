@@ -5,13 +5,15 @@ import { cities } from '../../capstone.json'
 
 export default function CreateForm({ onCreateTrip }) {
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form data-testid="form" onSubmit={handleSubmit}>
       <Heading>Plan your Trip</Heading>
       <label>
         City
         <Select required name="city">
           {cities.map(({ name, id }) => (
-            <option key={id}>{name}</option>
+            <option data-testid="select-option" key={id}>
+              {name}
+            </option>
           ))}
         </Select>
       </label>
