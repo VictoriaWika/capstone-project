@@ -1,8 +1,8 @@
-import Header from './Header'
+import Navigation from './Navigation'
 
 export default {
   title: 'Components',
-  component: Header,
+  component: Navigation,
 }
 
-export const PrimaryHeader = () => <Header>Travelr</Header>
+export const PrimaryNavigation = () => <Navigation />
