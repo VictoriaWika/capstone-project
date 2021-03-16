@@ -48,6 +48,7 @@ const Form = styled.form`
   gap: 16px;
   background: rgba(250, 250, 250, 0.9);
   padding: 20px;
+  width: 335px;
 `
 const Heading = styled.h2`
   margin: 5px;
