@@ -17,8 +17,13 @@ const Card = styled.div`
   height: 176px;
   padding: 20px;
   display: grid;
+  width: 335px;
   gap: 10px;
   position: relative;
+
+  &:first-child {
+    margin-top: 40px;
+  }
 `
 const Heading = styled.h3`
   margin: 0;

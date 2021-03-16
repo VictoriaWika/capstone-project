@@ -31,4 +31,11 @@ const Nav = styled.nav`
 `
 const NavButton = styled.button`
   text-decoration: none;
+  border-bottom: 2px solid #bbb;
+  color: #bbb;
+
+  &.active {
+    color: black;
+    border-bottom: 2px solid black;
+  }
 `

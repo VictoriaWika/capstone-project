@@ -5,6 +5,8 @@ import Navigation from './components/Navigation/Navigation'
 import SearchPage from './components/SearchPage/SearchPage'
 import TripPage from './components/TripPage/TripPage'
 import HomePage from './components/HomePage/HomePage'
+import YourTripsPage from './components/YourTripsPage/YourTripsPage'
+import TripNavigation from './components/TripNavigation/TripNavigation'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
@@ -30,11 +32,17 @@ export default function App() {
           />
         </Route>
         <Route path="/trip">
-          <TripPage CreateTrip={CreateTrip} cards={cards} setCards={setCards} />
+          <TripPage CreateTrip={CreateTrip} />
+        </Route>
+        <Route path="/yourtrips">
+          <YourTripsPage cards={cards} setCards={setCards} />
         </Route>
       </Switch>
-      <Route exact path={['/', '/search', '/trip']}>
+      <Route exact path={['/', '/search', '/trip', '/yourtrips']}>
         <Navigation />
+      </Route>
+      <Route exact path={['/trip', '/yourtrips']}>
+        <TripNavigation />
       </Route>
     </AppLayout>
   )
