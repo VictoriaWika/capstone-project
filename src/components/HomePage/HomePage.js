@@ -5,15 +5,15 @@ export default function HomePage() {
   return (
     <>
       <Header title="Travelr" />
-      <MT20>
+      <MaintenanceWrapper>
         <p>Coming soon!</p>
         <p>Meanwhile take a look at the other pages!</p>
-      </MT20>
+      </MaintenanceWrapper>
     </>
   )
 }
 
-const MT20 = styled.div`
+const MaintenanceWrapper = styled.div`
   margin-top: 20px;
   text-align: center;
 `

@@ -52,7 +52,7 @@ const Form = styled.form`
   margin-top: 30px;
 `
 const Heading = styled.h2`
-  margin: 5px;
+  margin: 5px 0;
 `
 const Select = styled.select`
   appearance: none;

@@ -62,13 +62,13 @@ export default function App() {
   }
 
   function handleLikePlace(name) {
-    let newArray
+    let newLikedPlaces
     if (likedPlaces.includes(name)) {
-      newArray = likedPlaces.filter(likedPlace => likedPlace !== name)
+      newLikedPlaces = likedPlaces.filter(likedPlace => likedPlace !== name)
     } else {
-      newArray = [...likedPlaces, name]
+      newLikedPlaces = [...likedPlaces, name]
     }
-    setLikedPlaces(newArray)
+    setLikedPlaces(newLikedPlaces)
   }
 }
 const AppLayout = styled.div`
