@@ -12,6 +12,7 @@ body {
   font-size: 112.5%; 
   padding: 20px;
   margin: 0;
+  margin-bottom: 30px;
 }
 
 input {

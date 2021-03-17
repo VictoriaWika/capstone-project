@@ -1,5 +1,6 @@
 import GlobalStyle from '../src/GlobalStyle'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { MemoryRouter } from "react-router";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -12,8 +13,10 @@ export const parameters = {
 export const decorators =[
   Story => (
     <>
-      <GlobalStyle />
-      <Story />
+      <MemoryRouter initialEntries={['/']}>
+        <GlobalStyle />
+        <Story />
+      </MemoryRouter>
     </>
   ),
 ]

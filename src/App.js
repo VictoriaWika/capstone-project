@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
-import { cities } from './capstone.json'
-import AttractionCard from './components/AttractionCard/AttractionCard'
-import CreateForm from './components/CreateForm/CreateForm'
-import Filter from './components/Filter/Filter'
-import TripCard from './components/TripCard/TripCard'
+import { Switch, Route } from 'react-router-dom'
+import Navigation from './components/Navigation/Navigation'
+import SearchPage from './components/SearchPage/SearchPage'
+import TripPage from './components/TripPage/TripPage'
+import HomePage from './components/HomePage/HomePage'
+import YourTripsPage from './components/YourTripsPage/YourTripsPage'
+import TripNavigation from './components/TripNavigation/TripNavigation'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
@@ -17,36 +19,31 @@ export default function App() {
 
   return (
     <AppLayout>
-      <CreateForm onCreateTrip={CreateTrip} />
-      {cards.map(card => (
-        <TripCard
-          key={card.city}
-          city={card.city}
-          startDate={card.startDate}
-          endDate={card.endDate}
-          cards={cards}
-          setCards={setCards}
-        />
-      ))}
-      <Filter userInput={userInput} setUserInput={setUserInput} />
-      {cities.map(({ name, attraction, id }) => (
-        <CardLayout key={id}>
-          <h2>{name}</h2>
-          {attraction
-            .filter(item =>
-              item.name.toLowerCase().includes(userInput.toLowerCase().trim())
-            )
-            .map(({ name, image }) => (
-              <AttractionCard
-                key={name}
-                name={name}
-                image={image}
-                onLike={handleLikePlace}
-                likedPlaces={likedPlaces}
-              />
-            ))}
-        </CardLayout>
-      ))}
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/search">
+          <SearchPage
+            userInput={userInput}
+            setUserInput={setUserInput}
+            handleLikePlace={handleLikePlace}
+            likedPlaces={likedPlaces}
+          />
+        </Route>
+        <Route path="/trip">
+          <TripPage CreateTrip={CreateTrip} />
+        </Route>
+        <Route path="/yourtrips">
+          <YourTripsPage cards={cards} setCards={setCards} />
+        </Route>
+      </Switch>
+      <Route exact path={['/', '/search', '/trip', '/yourtrips']}>
+        <Navigation />
+      </Route>
+      <Route exact path={['/trip', '/yourtrips']}>
+        <TripNavigation />
+      </Route>
     </AppLayout>
   )
 
@@ -65,23 +62,17 @@ export default function App() {
   }
 
   function handleLikePlace(name) {
-    let newArray
-
+    let newLikedPlaces
     if (likedPlaces.includes(name)) {
-      newArray = likedPlaces.filter(likedPlace => likedPlace !== name)
+      newLikedPlaces = likedPlaces.filter(likedPlace => likedPlace !== name)
     } else {
-      newArray = [...likedPlaces, name]
+      newLikedPlaces = [...likedPlaces, name]
     }
-
-    setLikedPlaces(newArray)
+    setLikedPlaces(newLikedPlaces)
   }
 }
 const AppLayout = styled.div`
   display: grid;
   justify-content: center;
   gap: 20px;
-`
-const CardLayout = styled.div`
-  display: grid;
-  gap: 10px;
 `
