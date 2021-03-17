@@ -7,21 +7,34 @@ import TripPage from './components/TripPage/TripPage'
 import HomePage from './components/HomePage/HomePage'
 import YourTripsPage from './components/YourTripsPage/YourTripsPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
+import { cities } from './capstone.json'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
   const [likedPlaces, setLikedPlaces] = useState([])
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
 
+  let AllSights = cities
+    .map(function (val) {
+      return val.attraction
+    })
+    .reduce(function (pre, cur) {
+      return pre.concat(cur)
+    })
+
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
 
   return (
-    <AppLayout>
+    <>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage
+            handleLikePlace={handleLikePlace}
+            likedPlaces={likedPlaces}
+            AllSights={AllSights}
+          />
         </Route>
         <Route path="/search">
           <SearchPage
@@ -44,7 +57,7 @@ export default function App() {
       <Route exact path={['/trip', '/yourtrips']}>
         <TripNavigation />
       </Route>
-    </AppLayout>
+    </>
   )
 
   function CreateTrip(newCard) {
@@ -71,8 +84,3 @@ export default function App() {
     setLikedPlaces(newLikedPlaces)
   }
 }
-const AppLayout = styled.div`
-  display: grid;
-  justify-content: center;
-  gap: 20px;
-`

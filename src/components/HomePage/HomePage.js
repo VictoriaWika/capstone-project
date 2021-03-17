@@ -1,19 +1,23 @@
 import styled from 'styled-components/macro'
+import Discover from '../Discover/Discover'
 import Header from '../Header/Header'
 
-export default function HomePage() {
+export default function HomePage({ handleLikePlace, likedPlaces, AllSights }) {
   return (
-    <>
+    <PageLayout>
       <Header title="Travelr" />
-      <MaintenanceWrapper>
-        <p>Coming soon!</p>
-        <p>Meanwhile take a look at the other pages!</p>
-      </MaintenanceWrapper>
-    </>
+      <Discover
+        handleLikePlace={handleLikePlace}
+        likedPlaces={likedPlaces}
+        AllSights={AllSights}
+      />
+    </PageLayout>
   )
 }
 
-const MaintenanceWrapper = styled.div`
+const PageLayout = styled.div`
+  display: grid;
+  justify-content: center;
   margin-top: 20px;
-  text-align: center;
+  gap: 10px;
 `

@@ -15,6 +15,7 @@ const AppHeader = styled.header`
   left: 0;
   right: 0;
   padding: 8px;
+  z-index: 30;
   h1 {
     margin: 0;
     font-size: 26px;
