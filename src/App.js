@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import styled from 'styled-components/macro'
 import { Switch, Route } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation'
 import SearchPage from './components/SearchPage/SearchPage'

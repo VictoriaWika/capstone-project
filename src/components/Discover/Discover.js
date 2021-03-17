@@ -4,14 +4,14 @@ import AttractionCard from '../AttractionCard/AttractionCard'
 import Button from '../Button/Button'
 
 export default function Discover({ AllSights, handleLikePlace, likedPlaces }) {
-  const [random, setRandom] = useState(sightRandomizer())
+  const [randomSights, setRandom] = useState(sightRandomizer())
   return (
     <>
       <Heading>Discover</Heading>
       <Button onClick={() => setRandom(sightRandomizer())}>
         Show new sights
       </Button>
-      {random.map(item => (
+      {randomSights.map(item => (
         <AttractionCard
           key={item.name}
           name={item.name}
@@ -25,9 +25,9 @@ export default function Discover({ AllSights, handleLikePlace, likedPlaces }) {
     </>
   )
   function sightRandomizer() {
-    const randomSights = AllSights.sort(() => 0.5 - Math.random())
-    let random = randomSights.slice(0, 5)
-    return random
+    const AllSightsRandom = AllSights.sort(() => 0.5 - Math.random())
+    let randomSights = AllSightsRandom.slice(0, 5)
+    return randomSights
   }
 }
 
