@@ -25,14 +25,14 @@ const Nav = styled.nav`
   height: 40px;
   bottom: 0;
   left: 0;
-  background: #eee;
+  background: var(--color-lightgrey);
   width: 100%;
-  z-index: 30;
+  z-index: var(--zindex-fixed);
 `
 const NavButton = styled.button`
   text-decoration: none;
-  border-bottom: 2px solid #bbb;
-  color: #bbb;
+  border-bottom: 2px solid var(--color-darkgrey);
+  color: var(--color-darkgrey);
 
   &.active {
     color: black;

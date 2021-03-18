@@ -1,19 +1,43 @@
 import styled from 'styled-components/macro'
+import AttractionCard from '../AttractionCard/AttractionCard'
+import Button from '../Button/Button'
 import Header from '../Header/Header'
 
-export default function HomePage() {
+export default function HomePage({
+  onLikePlace,
+  likedPlaces,
+  randomSights,
+  setRandom,
+  onSightRandomizer,
+}) {
   return (
-    <>
+    <PageLayout>
       <Header title="Travelr" />
-      <MaintenanceWrapper>
-        <p>Coming soon!</p>
-        <p>Meanwhile take a look at the other pages!</p>
-      </MaintenanceWrapper>
-    </>
+      <Heading>Discover</Heading>
+      <Button onClick={() => setRandom(onSightRandomizer())}>
+        Show new sights
+      </Button>
+      {randomSights.map(item => (
+        <AttractionCard
+          key={item.name}
+          name={item.name}
+          image={item.image}
+          LikePlace={onLikePlace}
+          likedPlaces={likedPlaces}
+        >
+          {item.name}
+        </AttractionCard>
+      ))}
+    </PageLayout>
   )
 }
 
-const MaintenanceWrapper = styled.div`
+const PageLayout = styled.div`
+  display: grid;
+  justify-content: center;
   margin-top: 20px;
-  text-align: center;
+  gap: 10px;
+`
+const Heading = styled.h2`
+  margin-bottom: 0;
 `

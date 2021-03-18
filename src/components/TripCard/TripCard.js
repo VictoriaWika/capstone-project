@@ -13,7 +13,7 @@ export default function TripCard({ city, startDate, endDate }) {
 }
 
 const Card = styled.div`
-  background: rgba(250, 250, 250, 0.9);
+  background: var(--color-bg-light);
   height: 176px;
   padding: 20px;
   display: grid;
@@ -41,7 +41,7 @@ const Date = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 80px;
-  background: #eee;
+  background: var(--color-lightgrey);
   border-radius: 10px 0 0 10px;
   padding: 10px;
 `

@@ -19,13 +19,13 @@ describe('AttractionCard', () => {
     expect(screen.getByRole('button')).toBeInTheDocument()
   })
 
-  it('calls onLike when clicking on the like button', () => {
+  it('calls onLikePlace when clicking on the like button', () => {
     const callback = jest.fn()
     render(
       <AttractionCard
         name="Alfama"
         image={imageFile}
-        onLike={callback}
+        onLikePlace={callback}
         likedPlaces="[Alfama]"
       />
     )

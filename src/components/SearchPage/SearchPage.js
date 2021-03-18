@@ -1,17 +1,17 @@
 import styled from 'styled-components/macro'
 import AttractionCard from '../AttractionCard/AttractionCard'
-import Filter from '../Filter/Filter'
 import { cities } from '../../capstone.json'
+import Searchbar from '../Searchbar/Searchbar'
 
 export default function SearchPage({
   userInput,
   setUserInput,
-  handleLikePlace,
+  onLikePlace,
   likedPlaces,
 }) {
   return (
     <>
-      <Filter userInput={userInput} setUserInput={setUserInput} />
+      <Searchbar userInput={userInput} setUserInput={setUserInput} />
       {cities.map(({ name, attraction, id }) => (
         <CardLayout key={id}>
           <h2>{name}</h2>
@@ -24,7 +24,7 @@ export default function SearchPage({
                 key={name}
                 name={name}
                 image={image}
-                onLike={handleLikePlace}
+                LikePlace={onLikePlace}
                 likedPlaces={likedPlaces}
               />
             ))}

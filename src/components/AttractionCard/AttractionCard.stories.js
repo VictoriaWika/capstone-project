@@ -15,5 +15,5 @@ PrimaryCard.args = {
   name: 'Alfama',
   image: imageFile,
   likedPlaces: 'unliked',
-  onLike: action('onClick'),
+  onLikePlace: action('onClick'),
 }

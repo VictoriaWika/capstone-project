@@ -1,6 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+:root {
+--color-bg-light: rgba(250, 250, 250, 0.9);
+--color-white: #fff;
+--color-lightgrey: #eee;
+--color-darkgrey: #bbb;
+
+--zindex-fixed: 30;
+--zindex-absolute: 20;
+}
 * {
   box-sizing: border-box;
 }

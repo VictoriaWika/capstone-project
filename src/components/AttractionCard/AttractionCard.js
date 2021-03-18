@@ -5,13 +5,18 @@ import { ReactComponent as UnlikeSVG } from '../../icons/unliked.svg'
 const like = <LikeSVG />
 const unlike = <UnlikeSVG />
 
-export default function AttractionCard({ name, image, onLike, likedPlaces }) {
+export default function AttractionCard({
+  name,
+  image,
+  LikePlace,
+  likedPlaces,
+}) {
   return (
     <Card key={name}>
       <LikeButton
         role="button"
         aria-label="toggle-like"
-        onClick={() => onLike(name)}
+        onClick={() => LikePlace(name)}
       >
         {likedPlaces.includes(name) ? like : unlike}
       </LikeButton>
@@ -32,7 +37,7 @@ const AttractionName = styled.div`
   left: 0;
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-  background: rgba(250, 250, 250, 0.9);
+  background: var(--color-bg-light);
   padding: 10px;
 `
 const Image = styled.img`
@@ -43,5 +48,5 @@ const LikeButton = styled.span`
   position: absolute;
   top: 0;
   right: 0;
-  z-index: 2;
+  z-index: var(--zindex-absolute);
 `

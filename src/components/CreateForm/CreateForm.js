@@ -46,7 +46,7 @@ export default function CreateForm({ onCreateTrip }) {
 const Form = styled.form`
   display: grid;
   gap: 16px;
-  background: rgba(250, 250, 250, 0.9);
+  background: var(--color-bg-light);
   padding: 20px;
   width: 335px;
   margin-top: 30px;
@@ -56,8 +56,8 @@ const Heading = styled.h2`
 `
 const Select = styled.select`
   appearance: none;
-  border: 1px #eee solid;
-  box-shadow: 1px 1px 2px #eee;
+  border: 1px var(--color-lightgrey) solid;
+  box-shadow: 1px 1px 2px var(--color-lightgrey);
   width: 100%;
   font-family: inherit;
   padding: 2px;

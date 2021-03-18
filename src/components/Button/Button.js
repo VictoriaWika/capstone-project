@@ -5,5 +5,5 @@ export default styled.button`
   font-size: inherit;
   border-radius: 24px;
   padding: 5px 20px;
-  background: #eee;
+  background: var(--color-lightgrey);
 `

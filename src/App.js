@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import styled from 'styled-components/macro'
 import { Switch, Route } from 'react-router-dom'
 import Navigation from './components/Navigation/Navigation'
 import SearchPage from './components/SearchPage/SearchPage'
@@ -7,27 +6,37 @@ import TripPage from './components/TripPage/TripPage'
 import HomePage from './components/HomePage/HomePage'
 import YourTripsPage from './components/YourTripsPage/YourTripsPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
+import { cities } from './capstone.json'
 
 export default function App() {
   const [userInput, setUserInput] = useState('')
   const [likedPlaces, setLikedPlaces] = useState([])
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  const allSights = cities.flatMap(city => city.attraction)
+  const [randomSights, setRandom] = useState(sightRandomizer())
 
   useEffect(() => {
     saveToLocal('cards', cards)
   }, [cards])
 
   return (
-    <AppLayout>
+    <>
       <Switch>
         <Route exact path="/">
-          <HomePage />
+          <HomePage
+            onLikePlace={handleLikePlace}
+            likedPlaces={likedPlaces}
+            allSights={allSights}
+            randomSights={randomSights}
+            setRandom={setRandom}
+            onSightRandomizer={sightRandomizer}
+          />
         </Route>
         <Route path="/search">
           <SearchPage
             userInput={userInput}
             setUserInput={setUserInput}
-            handleLikePlace={handleLikePlace}
+            onLikePlace={handleLikePlace}
             likedPlaces={likedPlaces}
           />
         </Route>
@@ -44,7 +53,7 @@ export default function App() {
       <Route exact path={['/trip', '/yourtrips']}>
         <TripNavigation />
       </Route>
-    </AppLayout>
+    </>
   )
 
   function CreateTrip(newCard) {
@@ -70,9 +79,10 @@ export default function App() {
     }
     setLikedPlaces(newLikedPlaces)
   }
+
+  function sightRandomizer() {
+    const allSightsRandom = allSights.sort(() => 0.5 - Math.random())
+    const randomSights = allSightsRandom.slice(0, 5)
+    return randomSights
+  }
 }
-const AppLayout = styled.div`
-  display: grid;
-  justify-content: center;
-  gap: 20px;
-`
