@@ -7,6 +7,9 @@ export default function Navigation() {
       <NavButton as={NavLink} exact to="/">
         Home
       </NavButton>
+      <NavButton as={NavLink} to="/liked">
+        Like
+      </NavButton>
       <NavButton as={NavLink} to="/search">
         Search
       </NavButton>

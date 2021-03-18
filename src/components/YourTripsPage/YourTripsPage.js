@@ -1,16 +1,18 @@
 import styled from 'styled-components'
 import TripCard from '../TripCard/TripCard'
 
-export default function YourTripsPage({ cards, setCards }) {
+export default function YourTripsPage({ tripCards, setTripCards }) {
   return (
     <TripWrapper>
-      {cards.map(card => (
+      <Heading>Your planned Trips</Heading>
+      {tripCards.length === 0 && <p>You have no planned Trips yet!</p>}
+      {tripCards.map(card => (
         <TripCard
           key={card.city}
           city={card.city}
           startDate={card.startDate}
           endDate={card.endDate}
-          setCards={setCards}
+          setTripCards={setTripCards}
         />
       ))}
     </TripWrapper>
@@ -20,4 +22,8 @@ export default function YourTripsPage({ cards, setCards }) {
 const TripWrapper = styled.div`
   display: grid;
   gap: 20px;
+  margin-top: 20px;
+`
+const Heading = styled.h2`
+  margin-bottom: 0;
 `
