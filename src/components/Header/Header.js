@@ -9,13 +9,13 @@ export default function Header({ title }) {
 }
 const AppHeader = styled.header`
   text-align: center;
-  background: #eee;
+  background: var(--color-lightgrey);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   padding: 8px;
-  z-index: 30;
+  z-index: var(--zindex-fixed);
   h1 {
     margin: 0;
     font-size: 26px;

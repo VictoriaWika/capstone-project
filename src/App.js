@@ -12,14 +12,8 @@ export default function App() {
   const [userInput, setUserInput] = useState('')
   const [likedPlaces, setLikedPlaces] = useState([])
   const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
-
-  let AllSights = cities
-    .map(function (val) {
-      return val.attraction
-    })
-    .reduce(function (pre, cur) {
-      return pre.concat(cur)
-    })
+  const allSights = cities.flatMap(city => city.attraction)
+  const [randomSights, setRandom] = useState(sightRandomizer())
 
   useEffect(() => {
     saveToLocal('cards', cards)
@@ -30,16 +24,19 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <HomePage
-            handleLikePlace={handleLikePlace}
+            onLikePlace={handleLikePlace}
             likedPlaces={likedPlaces}
-            AllSights={AllSights}
+            allSights={allSights}
+            randomSights={randomSights}
+            setRandom={setRandom}
+            onSightRandomizer={sightRandomizer}
           />
         </Route>
         <Route path="/search">
           <SearchPage
             userInput={userInput}
             setUserInput={setUserInput}
-            handleLikePlace={handleLikePlace}
+            onLikePlace={handleLikePlace}
             likedPlaces={likedPlaces}
           />
         </Route>
@@ -81,5 +78,11 @@ export default function App() {
       newLikedPlaces = [...likedPlaces, name]
     }
     setLikedPlaces(newLikedPlaces)
+  }
+
+  function sightRandomizer() {
+    const allSightsRandom = allSights.sort(() => 0.5 - Math.random())
+    const randomSights = allSightsRandom.slice(0, 5)
+    return randomSights
   }
 }

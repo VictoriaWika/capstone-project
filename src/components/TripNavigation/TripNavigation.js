@@ -22,14 +22,14 @@ const NavWrapper = styled.div`
   left: 0;
   right: 0;
   width: 100%;
-  background: #fff;
+  background: var(--color-white);
 `
 const Tab = styled.link`
   text-decoration: none;
   padding: 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #bbb;
-  color: #bbb;
+  border-bottom: 2px solid var(--color-darkgrey);
+  color: var(--color-darkgrey);
 
   &.active {
     color: black;

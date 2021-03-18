@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
-import Filter from './Filter'
+import Searchbar from './Searchbar'
 
-describe('Filter', () => {
+describe('Searchbar', () => {
   it('renders a form with label and input', () => {
-    render(<Filter />)
+    render(<Searchbar />)
     expect(screen.getByLabelText('Sightseeing attraction:')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('Times Square')).toBeInTheDocument()
   })

@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 
-export default function Filter({ userInput, setUserInput }) {
+export default function Searchbar({ userInput, setUserInput }) {
   return (
     <Form>
       <Label>

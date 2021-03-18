@@ -1,16 +1,33 @@
 import styled from 'styled-components/macro'
-import Discover from '../Discover/Discover'
+import AttractionCard from '../AttractionCard/AttractionCard'
+import Button from '../Button/Button'
 import Header from '../Header/Header'
 
-export default function HomePage({ handleLikePlace, likedPlaces, AllSights }) {
+export default function HomePage({
+  onLikePlace,
+  likedPlaces,
+  randomSights,
+  setRandom,
+  onSightRandomizer,
+}) {
   return (
     <PageLayout>
       <Header title="Travelr" />
-      <Discover
-        handleLikePlace={handleLikePlace}
-        likedPlaces={likedPlaces}
-        AllSights={AllSights}
-      />
+      <Heading>Discover</Heading>
+      <Button onClick={() => setRandom(onSightRandomizer())}>
+        Show new sights
+      </Button>
+      {randomSights.map(item => (
+        <AttractionCard
+          key={item.name}
+          name={item.name}
+          image={item.image}
+          LikePlace={onLikePlace}
+          likedPlaces={likedPlaces}
+        >
+          {item.name}
+        </AttractionCard>
+      ))}
     </PageLayout>
   )
 }
@@ -20,4 +37,7 @@ const PageLayout = styled.div`
   justify-content: center;
   margin-top: 20px;
   gap: 10px;
+`
+const Heading = styled.h2`
+  margin-bottom: 0;
 `
