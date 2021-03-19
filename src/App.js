@@ -41,6 +41,8 @@ export default function App() {
         </Route>
         <Route path="/liked">
           <LikePage
+            userInput={userInput}
+            setUserInput={setUserInput}
             likedPlaces={likedPlaces}
             onLikePlace={handleLikePlace}
             allSights={allSights}
@@ -76,7 +78,6 @@ export default function App() {
 
   function saveToLocal(key, data) {
     localStorage.setItem(key, JSON.stringify(data))
-    localStorage.clear()
   }
 
   function loadFromLocal(key) {
