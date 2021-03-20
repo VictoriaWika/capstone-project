@@ -1,20 +1,20 @@
+import { useState } from 'react'
 import styled from 'styled-components/macro'
 import AttractionCard from '../AttractionCard/AttractionCard'
 import Button from '../Button/Button'
 import Header from '../Header/Header'
 
 export default function HomePage({
-  onLikePlace,
+  handleAddLike,
   likedPlaces,
-  randomSights,
-  setRandom,
   onSightRandomizer,
 }) {
+  const [randomSights, setRandomSights] = useState(onSightRandomizer())
   return (
     <PageLayout>
       <Header title="Travelr" />
       <Heading>Discover</Heading>
-      <Button onClick={() => setRandom(onSightRandomizer())}>
+      <Button onClick={() => setRandomSights(onSightRandomizer())}>
         Show new sights
       </Button>
       {randomSights.map(item => (
@@ -22,7 +22,7 @@ export default function HomePage({
           key={item.name}
           name={item.name}
           image={item.image}
-          LikePlace={onLikePlace}
+          onAddLike={handleAddLike}
           likedPlaces={likedPlaces}
         >
           {item.name}

@@ -1,14 +1,11 @@
+import { useState } from 'react'
 import styled from 'styled-components/macro'
-import AttractionCard from '../AttractionCard/AttractionCard'
 import { cities } from '../../capstone.json'
+import AttractionCard from '../AttractionCard/AttractionCard'
 import Searchbar from '../Searchbar/Searchbar'
 
-export default function SearchPage({
-  userInput,
-  setUserInput,
-  onLikePlace,
-  likedPlaces,
-}) {
+export default function SearchPage({ handleAddLike, likedPlaces }) {
+  const [userInput, setUserInput] = useState('')
   return (
     <>
       <Searchbar userInput={userInput} setUserInput={setUserInput} />
@@ -24,7 +21,7 @@ export default function SearchPage({
                 key={name}
                 name={name}
                 image={image}
-                LikePlace={onLikePlace}
+                onAddLike={handleAddLike}
                 likedPlaces={likedPlaces}
               />
             ))}
