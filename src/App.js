@@ -10,8 +10,8 @@ import TripPage from './components/TripPage/TripPage'
 import useLocalStorage from './hooks/useLocalStorage'
 
 export default function App() {
-  const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places' ?? [])
-  const [tripCards, setTripCards] = useLocalStorage('tripCards' ?? [])
+  const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
+  const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
 
   return (
