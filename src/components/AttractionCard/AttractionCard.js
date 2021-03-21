@@ -8,7 +8,7 @@ const unlike = <UnlikeSVG />
 export default function AttractionCard({
   name,
   image,
-  LikePlace,
+  onAddLike,
   likedPlaces,
 }) {
   return (
@@ -16,7 +16,7 @@ export default function AttractionCard({
       <LikeButton
         role="button"
         aria-label="toggle-like"
-        onClick={() => LikePlace(name)}
+        onClick={() => onAddLike(name)}
       >
         {likedPlaces.includes(name) ? like : unlike}
       </LikeButton>

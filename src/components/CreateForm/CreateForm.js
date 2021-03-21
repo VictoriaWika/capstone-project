@@ -39,7 +39,6 @@ export default function CreateForm({ onCreateTrip }) {
       endDate: endDate.value,
     })
     form.reset()
-    city.focus()
   }
 }
 

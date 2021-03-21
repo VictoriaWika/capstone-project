@@ -1,53 +1,48 @@
-import { useState, useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
+import { cities } from './capstone.json'
+import CreatePage from './components/CreatePage/CreatePage'
+import HomePage from './components/HomePage/HomePage'
+import LikePage from './components/LikePage/LikePage'
 import Navigation from './components/Navigation/Navigation'
 import SearchPage from './components/SearchPage/SearchPage'
-import TripPage from './components/TripPage/TripPage'
-import HomePage from './components/HomePage/HomePage'
-import YourTripsPage from './components/YourTripsPage/YourTripsPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
-import { cities } from './capstone.json'
+import TripPage from './components/TripPage/TripPage'
+import useLocalStorage from './hooks/useLocalStorage'
 
 export default function App() {
-  const [userInput, setUserInput] = useState('')
-  const [likedPlaces, setLikedPlaces] = useState([])
-  const [cards, setCards] = useState(loadFromLocal('cards') ?? [])
+  const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
+  const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
-  const [randomSights, setRandom] = useState(sightRandomizer())
-
-  useEffect(() => {
-    saveToLocal('cards', cards)
-  }, [cards])
 
   return (
     <>
       <Switch>
         <Route exact path="/">
           <HomePage
-            onLikePlace={handleLikePlace}
+            handleAddLike={addLike}
             likedPlaces={likedPlaces}
             allSights={allSights}
-            randomSights={randomSights}
-            setRandom={setRandom}
             onSightRandomizer={sightRandomizer}
           />
         </Route>
-        <Route path="/search">
-          <SearchPage
-            userInput={userInput}
-            setUserInput={setUserInput}
-            onLikePlace={handleLikePlace}
+        <Route path="/liked">
+          <LikePage
             likedPlaces={likedPlaces}
+            handleAddLike={addLike}
+            allSights={allSights}
           />
         </Route>
+        <Route path="/search">
+          <SearchPage handleAddLike={addLike} likedPlaces={likedPlaces} />
+        </Route>
         <Route path="/trip">
-          <TripPage CreateTrip={CreateTrip} />
+          <CreatePage CreateTrip={CreateTrip} />
         </Route>
         <Route path="/yourtrips">
-          <YourTripsPage cards={cards} setCards={setCards} />
+          <TripPage tripCards={tripCards} setTripCards={setTripCards} />
         </Route>
       </Switch>
-      <Route exact path={['/', '/search', '/trip', '/yourtrips']}>
+      <Route exact path={['/', '/liked', '/search', '/trip', '/yourtrips']}>
         <Navigation />
       </Route>
       <Route exact path={['/trip', '/yourtrips']}>
@@ -56,21 +51,17 @@ export default function App() {
     </>
   )
 
-  function CreateTrip(newCard) {
-    setCards([newCard, ...cards])
+  function CreateTrip(newTripCard) {
+    setTripCards([newTripCard, ...tripCards])
   }
 
-  function saveToLocal(key, data) {
-    localStorage.setItem(key, JSON.stringify(data))
+  function sightRandomizer() {
+    const allSightsRandom = allSights.sort(() => 0.5 - Math.random())
+    const randomSights = allSightsRandom.slice(0, 5)
+    return randomSights
   }
 
-  function loadFromLocal(key) {
-    const jsonString = localStorage.getItem(key)
-    const data = JSON.parse(jsonString)
-    return data
-  }
-
-  function handleLikePlace(name) {
+  function addLike(name) {
     let newLikedPlaces
     if (likedPlaces.includes(name)) {
       newLikedPlaces = likedPlaces.filter(likedPlace => likedPlace !== name)
@@ -78,11 +69,5 @@ export default function App() {
       newLikedPlaces = [...likedPlaces, name]
     }
     setLikedPlaces(newLikedPlaces)
-  }
-
-  function sightRandomizer() {
-    const allSightsRandom = allSights.sort(() => 0.5 - Math.random())
-    const randomSights = allSightsRandom.slice(0, 5)
-    return randomSights
   }
 }
