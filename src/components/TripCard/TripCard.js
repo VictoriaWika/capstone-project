@@ -54,8 +54,8 @@ const DeleteButton = styled.button`
   color: red;
   border: 0.15em solid red;
   background: transparent;
-  border-radius: 100px;
-  padding: 4px 8px;
+  border-radius: 20px;
+  padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 10px;
