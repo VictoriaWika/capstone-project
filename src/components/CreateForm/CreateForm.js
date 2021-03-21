@@ -2,6 +2,7 @@ import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
 import { cities } from '../../capstone.json'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function CreateForm({ onCreateTrip }) {
   return (
@@ -34,6 +35,7 @@ export default function CreateForm({ onCreateTrip }) {
     const { city, startDate, endDate } = form.elements
 
     onCreateTrip({
+      id: uuidv4(),
       city: city.value,
       startDate: startDate.value,
       endDate: endDate.value,

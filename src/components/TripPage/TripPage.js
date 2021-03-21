@@ -8,7 +8,7 @@ export default function TripPage({ tripCards, setTripCards }) {
       {tripCards.length === 0 && <p>You have no planned Trips yet!</p>}
       {tripCards.map(card => (
         <TripCard
-          key={card.city}
+          key={card.id}
           city={card.city}
           startDate={card.startDate}
           endDate={card.endDate}

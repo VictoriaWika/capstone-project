@@ -13,7 +13,7 @@ export default function Navigation() {
       <NavButton as={NavLink} to="/search">
         Search
       </NavButton>
-      <NavButton as={NavLink} to="/trip">
+      <NavButton as={NavLink} to="/createtrip">
         Trip
       </NavButton>
     </Nav>

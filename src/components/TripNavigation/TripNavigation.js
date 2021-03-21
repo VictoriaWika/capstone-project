@@ -4,10 +4,10 @@ import styled from 'styled-components/macro'
 export default function TripNavigation() {
   return (
     <NavWrapper>
-      <Tab as={NavLink} to="/trip">
+      <Tab as={NavLink} to="/createtrip">
         Plan Trip
       </Tab>
-      <Tab as={NavLink} to="/yourtrips">
+      <Tab as={NavLink} to="/trips">
         Your Trips
       </Tab>
     </NavWrapper>

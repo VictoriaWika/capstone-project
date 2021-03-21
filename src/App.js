@@ -35,17 +35,17 @@ export default function App() {
         <Route path="/search">
           <SearchPage handleAddLike={addLike} likedPlaces={likedPlaces} />
         </Route>
-        <Route path="/trip">
+        <Route path="/createtrip">
           <CreatePage CreateTrip={CreateTrip} />
         </Route>
-        <Route path="/yourtrips">
+        <Route path="/trips">
           <TripPage tripCards={tripCards} setTripCards={setTripCards} />
         </Route>
       </Switch>
-      <Route exact path={['/', '/liked', '/search', '/trip', '/yourtrips']}>
+      <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
         <Navigation />
       </Route>
-      <Route exact path={['/trip', '/yourtrips']}>
+      <Route exact path={['/createtrip', '/trips']}>
         <TripNavigation />
       </Route>
     </>
