@@ -1,7 +1,11 @@
 import styled from 'styled-components/macro'
 import TripCard from '../TripCard/TripCard'
 
-export default function TripPage({ tripCards, setTripCards }) {
+export default function TripPage({
+  tripCards,
+  setTripCards,
+  handleDeleteTrip,
+}) {
   return (
     <TripWrapper>
       <Heading>Your planned Trips</Heading>
@@ -9,10 +13,12 @@ export default function TripPage({ tripCards, setTripCards }) {
       {tripCards.map(card => (
         <TripCard
           key={card.id}
+          id={card.id}
           city={card.city}
           startDate={card.startDate}
           endDate={card.endDate}
           setTripCards={setTripCards}
+          onDeleteTrip={handleDeleteTrip}
         />
       ))}
     </TripWrapper>

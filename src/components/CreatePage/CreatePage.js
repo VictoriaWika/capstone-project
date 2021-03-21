@@ -1,5 +1,5 @@
 import CreateForm from '../CreateForm/CreateForm'
 
-export default function CreatePage({ CreateTrip }) {
-  return <CreateForm onCreateTrip={CreateTrip} />
+export default function CreatePage({ handleCreateTrip }) {
+  return <CreateForm onCreateTrip={handleCreateTrip} />
 }

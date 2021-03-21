@@ -1,6 +1,12 @@
 import styled from 'styled-components/macro'
 
-export default function TripCard({ city, startDate, endDate }) {
+export default function TripCard({
+  city,
+  id,
+  startDate,
+  endDate,
+  onDeleteTrip,
+}) {
   return (
     <Card>
       <Heading>{city}</Heading>
@@ -8,6 +14,7 @@ export default function TripCard({ city, startDate, endDate }) {
         <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date>
         <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date>
       </DateWrapper>
+      <DeleteButton onClick={() => onDeleteTrip(id)}>✕ Delete</DeleteButton>
     </Card>
   )
 }
@@ -16,9 +23,7 @@ const Card = styled.div`
   background: var(--color-bg-light);
   height: 176px;
   padding: 20px;
-  display: grid;
   width: 335px;
-  gap: 10px;
   position: relative;
 
   &:first-child {
@@ -44,4 +49,15 @@ const Date = styled.div`
   background: var(--color-lightgrey);
   border-radius: 10px 0 0 10px;
   padding: 10px;
+`
+const DeleteButton = styled.button`
+  color: red;
+  border: 0.15em solid red;
+  background: transparent;
+  border-radius: 100px;
+  padding: 4px 8px;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 16px;
 `

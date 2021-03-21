@@ -36,10 +36,14 @@ export default function App() {
           <SearchPage handleAddLike={addLike} likedPlaces={likedPlaces} />
         </Route>
         <Route path="/createtrip">
-          <CreatePage CreateTrip={CreateTrip} />
+          <CreatePage handleCreateTrip={createTrip} />
         </Route>
         <Route path="/trips">
-          <TripPage tripCards={tripCards} setTripCards={setTripCards} />
+          <TripPage
+            tripCards={tripCards}
+            setTripCards={setTripCards}
+            handleDeleteTrip={deleteTrip}
+          />
         </Route>
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
@@ -51,8 +55,13 @@ export default function App() {
     </>
   )
 
-  function CreateTrip(newTripCard) {
+  function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])
+  }
+
+  function deleteTrip(currentId) {
+    const filteredTripCards = tripCards.filter(card => card.id !== currentId)
+    setTripCards(filteredTripCards)
   }
 
   function sightRandomizer() {
