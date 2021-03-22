@@ -35,24 +35,33 @@ export default function App() {
         <Route path="/search">
           <SearchPage handleAddLike={addLike} likedPlaces={likedPlaces} />
         </Route>
-        <Route path="/trip">
-          <CreatePage CreateTrip={CreateTrip} />
+        <Route path="/createtrip">
+          <CreatePage handleCreateTrip={createTrip} />
         </Route>
-        <Route path="/yourtrips">
-          <TripPage tripCards={tripCards} setTripCards={setTripCards} />
+        <Route path="/trips">
+          <TripPage
+            tripCards={tripCards}
+            setTripCards={setTripCards}
+            handleDeleteTrip={deleteTrip}
+          />
         </Route>
       </Switch>
-      <Route exact path={['/', '/liked', '/search', '/trip', '/yourtrips']}>
+      <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
         <Navigation />
       </Route>
-      <Route exact path={['/trip', '/yourtrips']}>
+      <Route exact path={['/createtrip', '/trips']}>
         <TripNavigation />
       </Route>
     </>
   )
 
-  function CreateTrip(newTripCard) {
+  function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])
+  }
+
+  function deleteTrip(currentId) {
+    const filteredTripCards = tripCards.filter(card => card.id !== currentId)
+    setTripCards(filteredTripCards)
   }
 
   function sightRandomizer() {

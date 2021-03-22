@@ -19,14 +19,14 @@ describe('CreateForm', () => {
 
   it('selects the right option', () => {
     const callback = jest.fn()
-    render(<CreateForm onSubmit={callback} onCreateTrip={callback} />)
+    render(<CreateForm onCreateTrip={callback} />)
     userEvent.selectOptions(screen.getByTestId('select'), ['New York'])
     expect(screen.getByTestId('New York').selected).toBe(true)
   })
 
-  it('calls onSubmit with form data', () => {
+  it('calls onCreateTrip with form data', () => {
     const callback = jest.fn()
-    render(<CreateForm onSubmit={callback} onCreateTrip={callback} />)
+    render(<CreateForm onCreateTrip={callback} />)
     userEvent.type(screen.getByLabelText('City'), 'Lisbon')
     userEvent.type(screen.getByLabelText('Start date'), '2021-03-25')
     userEvent.type(screen.getByLabelText('End date'), '2021-03-30')
@@ -34,6 +34,7 @@ describe('CreateForm', () => {
     expect(callback).toHaveBeenCalledTimes(1)
     expect(callback).toHaveBeenCalledWith({
       city: '',
+      id: 'random number',
       startDate: '2021-03-25',
       endDate: '2021-03-30',
     })
