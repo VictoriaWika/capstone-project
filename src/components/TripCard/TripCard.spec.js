@@ -13,14 +13,13 @@ describe('TripCard', () => {
     expect(screen.getByText(/Delete/)).toBeInTheDocument()
   })
 
-  it('calls onClick when clicked', () => {
+  it('calls onDeleteTrip when clicked', () => {
     const callback = jest.fn()
     render(
       <TripCard
         city="New York"
         startDate="2021-03-15"
         endDate="2021-03-24"
-        onClick={callback}
         onDeleteTrip={callback}
       />
     )
