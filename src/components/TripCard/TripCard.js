@@ -1,4 +1,6 @@
 import styled from 'styled-components/macro'
+import Button from '../Button/Button'
+import { Link } from 'react-router-dom'
 
 export default function TripCard({
   city,
@@ -10,10 +12,14 @@ export default function TripCard({
   return (
     <Card>
       <Heading>{city}</Heading>
+      <p>Number of sights added:</p>
       <DateWrapper>
         <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date>
         <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date>
       </DateWrapper>
+      <AddButton as={Link} to={`/${city}`}>
+        ＋ Add sights
+      </AddButton>
       <DeleteButton onClick={() => onDeleteTrip(id)}>✕ Delete</DeleteButton>
     </Card>
   )
@@ -21,7 +27,7 @@ export default function TripCard({
 
 const Card = styled.div`
   background: var(--color-bg-light);
-  height: 176px;
+  height: 200px;
   padding: 20px;
   width: 335px;
   position: relative;
@@ -50,14 +56,20 @@ const Date = styled.div`
   border-radius: 10px 0 0 10px;
   padding: 10px;
 `
-const DeleteButton = styled.button`
+const AddButton = styled(Button)`
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  position: absolute;
+  bottom: 60px;
+  left: 10px;
+`
+const DeleteButton = styled(Button)`
   color: red;
   border: 0.15em solid red;
   background: transparent;
-  border-radius: 20px;
   padding: 5px 10px;
   position: absolute;
   bottom: 10px;
   left: 10px;
-  font-size: 16px;
 `

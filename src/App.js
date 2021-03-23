@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
+import CityPage from './components/CityPage/CityPage'
 import CreatePage from './components/CreatePage/CreatePage'
 import HomePage from './components/HomePage/HomePage'
 import LikePage from './components/LikePage/LikePage'
@@ -21,7 +22,6 @@ export default function App() {
           <HomePage
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
-            allSights={allSights}
             onSightRandomizer={sightRandomizer}
           />
         </Route>
@@ -45,6 +45,7 @@ export default function App() {
             handleDeleteTrip={deleteTrip}
           />
         </Route>
+        <Route path="/:city" render={props => <CityPage {...props} />} />
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
         <Navigation />
