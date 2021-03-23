@@ -3,7 +3,6 @@ import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 
 export default function TripCard({
-  index,
   city,
   id,
   startDate,

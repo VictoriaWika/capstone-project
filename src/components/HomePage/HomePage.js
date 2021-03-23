@@ -14,9 +14,9 @@ export default function HomePage({
     <PageLayout>
       <Header title="Travelr" />
       <Heading>Discover</Heading>
-      {/* <Button onClick={() => setRandomSights(onSightRandomizer())}>
+      <Button onClick={() => setRandomSights(onSightRandomizer())}>
         Show new sights
-      </Button> */}
+      </Button>
       {randomSights.map(item => (
         <AttractionCard
           key={item.name}
