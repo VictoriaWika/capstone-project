@@ -3,6 +3,7 @@ import Button from '../Button/Button'
 import { Link } from 'react-router-dom'
 
 export default function TripCard({
+  index,
   city,
   id,
   startDate,
@@ -12,12 +13,11 @@ export default function TripCard({
   return (
     <Card>
       <Heading>{city}</Heading>
-      <p>Number of sights added:</p>
       <DateWrapper>
         <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date>
         <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date>
       </DateWrapper>
-      <AddButton as={Link} to={`/${city}`}>
+      <AddButton as={Link} to={`/${id}`}>
         ＋ Add sights
       </AddButton>
       <DeleteButton onClick={() => onDeleteTrip(id)}>✕ Delete</DeleteButton>

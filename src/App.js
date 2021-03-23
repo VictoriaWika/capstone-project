@@ -17,6 +17,7 @@ export default function App() {
 
   return (
     <>
+      {console.log(tripCards)}
       <Switch>
         <Route exact path="/">
           <HomePage
@@ -45,7 +46,11 @@ export default function App() {
             handleDeleteTrip={deleteTrip}
           />
         </Route>
-        <Route path="/:city" render={props => <CityPage {...props} />} />
+        <Route
+          path="/:id"
+          render={props => <CityPage {...props} />}
+          onAddSightToTrip={addSightToTrip}
+        />
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
         <Navigation />
@@ -55,6 +60,15 @@ export default function App() {
       </Route>
     </>
   )
+
+  function addSightToTrip(index) {
+    const currentTripCard = tripCards[index]
+    setTripCards([
+      ...tripCards.slice(0, index),
+      { ...currentTripCard, sights: 0 },
+      ...tripCards.slice(index + 1),
+    ])
+  }
 
   function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])

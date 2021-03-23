@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 export default function GoBackButton() {
   const history = useHistory()
 
-  return <Button onClick={handleClick}>Back</Button>
+  return <Button onClick={handleClick}>◁ Back</Button>
 
   function handleClick() {
     history.push('/trips')
