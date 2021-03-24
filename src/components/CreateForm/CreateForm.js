@@ -39,7 +39,7 @@ export default function CreateForm({ onCreateTrip }) {
       city: city.value,
       startDate: startDate.value,
       endDate: endDate.value,
-      sights: [{ name: 'hi', image: 'bye' }],
+      sights: [],
     })
     form.reset()
   }

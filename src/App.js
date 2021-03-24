@@ -52,7 +52,7 @@ export default function App() {
             <CityPage
               {...props}
               allSights={allSights}
-              // onAddSightToTrip={addSightToTrip}
+              onAddSight={addSightToTrip}
             />
           )}
         />
@@ -66,14 +66,15 @@ export default function App() {
     </>
   )
 
-  // function addSightToTrip(index, sightIndex) {
-  //   const currentTripCard = tripCards[index]
-  //   setTripCards([
-  //     ...tripCards.slice(0, index),
-  //     { ...currentTripCard.sights[sightIndex], name: {}, image: {} },
-  //     ...tripCards.slice(index + 1),
-  //   ])
-  // }
+  function addSightToTrip(sight, city) {
+    const currentTripCard = tripCards.find(trip => trip.city === city)
+    const index = tripCards.findIndex(trip => trip.city === city)
+    setTripCards([
+      ...tripCards.slice(0, index),
+      { ...currentTripCard, sights: [...currentTripCard.sights, sight] },
+      ...tripCards.slice(index + 1),
+    ])
+  }
 
   function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])

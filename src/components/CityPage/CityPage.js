@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 import GoBackButton from '../GoBackButton/GoBackButton'
 
-export default function CityPage({ allSights }) {
+export default function CityPage({ allSights, onAddSight }) {
   const { city } = useParams()
 
   return (
@@ -12,16 +12,13 @@ export default function CityPage({ allSights }) {
       <h1>Trip to: {city}</h1>
       {allSights.map((sight, index) => (
         <SightWrapper key={sight.image} sightIndex={index}>
-          <Button onClick={() => console.log('add sight')}>
-            + add sight to trip
-          </Button>
+          <Button onClick={() => onAddSight(sight, city)}>+ add to trip</Button>
           <div>
             <AttractionName>{sight.name}</AttractionName>
             <Image src={sight.image} width="335" height="335" alt="" />
           </div>
         </SightWrapper>
       ))}
-      {console.log(allSights)}
     </PageLayout>
   )
 }
