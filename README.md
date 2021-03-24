@@ -1,7 +1,7 @@
 # Travelr
 
-<div style="display: flex;">
-<div>Discover new places and plan your next big adventure with Travelr!
+<img src="./src/icons/travelers.svg" align="right" width="150">
+Discover new places and plan your next big adventure with Travelr!
 
 Get random suggestions for sights, give them a like and plan ahead!
 
@@ -9,13 +9,7 @@ Add your favorite sights to your travel plan, so you can show them to your frien
 
 [Take a sneak peek at the App right here!](https://victoria-capstone-project.herokuapp.com/)
 
-</div>
-<img src="./src/icons/travelers.svg" width="150" style="transform: scale(-1,1)">
-</div>
-
 ## Installation and usage
-
----
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
