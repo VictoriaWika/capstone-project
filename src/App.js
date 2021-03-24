@@ -47,9 +47,14 @@ export default function App() {
           />
         </Route>
         <Route
-          path="/:id"
-          render={props => <CityPage {...props} />}
-          onAddSightToTrip={addSightToTrip}
+          path="/:city"
+          render={props => (
+            <CityPage
+              {...props}
+              allSights={allSights}
+              // onAddSightToTrip={addSightToTrip}
+            />
+          )}
         />
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
@@ -61,14 +66,14 @@ export default function App() {
     </>
   )
 
-  function addSightToTrip(index) {
-    const currentTripCard = tripCards[index]
-    setTripCards([
-      ...tripCards.slice(0, index),
-      { ...currentTripCard, sights: 0 },
-      ...tripCards.slice(index + 1),
-    ])
-  }
+  // function addSightToTrip(index, sightIndex) {
+  //   const currentTripCard = tripCards[index]
+  //   setTripCards([
+  //     ...tripCards.slice(0, index),
+  //     { ...currentTripCard.sights[sightIndex], name: {}, image: {} },
+  //     ...tripCards.slice(index + 1),
+  //   ])
+  // }
 
   function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])

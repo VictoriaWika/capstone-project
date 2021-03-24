@@ -16,7 +16,7 @@ export default function TripCard({
         <Date>{startDate.replace('-', ' ').replace('-', '/')}</Date>
         <Date>{endDate.replace('-', ' ').replace('-', '/')}</Date>
       </DateWrapper>
-      <AddButton as={Link} to={`/${id}`}>
+      <AddButton as={Link} to={`/${city}`}>
         ＋ Add sights
       </AddButton>
       <DeleteButton onClick={() => onDeleteTrip(id)}>✕ Delete</DeleteButton>

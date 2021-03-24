@@ -1,34 +1,50 @@
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 import GoBackButton from '../GoBackButton/GoBackButton'
 
-import image1 from './test1.webp'
-import image2 from './test2.webp'
-
-export default function CityPage({ onAddSightToTrip }) {
-  const { id } = useParams()
+export default function CityPage({ allSights }) {
+  const { city } = useParams()
 
   return (
-    <div>
+    <PageLayout>
       <GoBackButton />
-      <p>ReiseID: {id}</p>
-      <div>
-        <h2>Torre de Belem</h2>
-        <Button onClick={() => onAddSightToTrip(index)}>
-          + add sight to trip
-        </Button>
-        <Image src={image1} width="335" height="335" alt="" />
-      </div>
-      <div>
-        <h2>Statue of Liberty</h2>
-        <Button>+ add sight to trip</Button>
-        <Image src={image2} width="335" height="335" alt="" />
-      </div>
-    </div>
+      <h1>Trip to: {city}</h1>
+      {allSights.map((sight, index) => (
+        <SightWrapper key={sight.image} sightIndex={index}>
+          <Button onClick={() => console.log('add sight')}>
+            + add sight to trip
+          </Button>
+          <div>
+            <AttractionName>{sight.name}</AttractionName>
+            <Image src={sight.image} width="335" height="335" alt="" />
+          </div>
+        </SightWrapper>
+      ))}
+      {console.log(allSights)}
+    </PageLayout>
   )
 }
-
+const PageLayout = styled.div`
+  display: grid;
+  gap: 10px;
+`
+const SightWrapper = styled.div`
+  position: relative;
+  display: grid;
+  gap: 10px;
+`
+const AttractionName = styled.div`
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 4px;
+  left: 0;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  background: var(--color-bg-light);
+  padding: 10px;
+`
 const Image = styled.img`
   border-radius: 24px;
   height: auto;
