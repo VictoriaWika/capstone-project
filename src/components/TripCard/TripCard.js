@@ -13,6 +13,7 @@ export default function TripCard({
   onDeleteTrip,
 }) {
   const [isVisible, setIsVisible] = useState(false)
+
   return (
     <Card>
       <Heading>{city}</Heading>
