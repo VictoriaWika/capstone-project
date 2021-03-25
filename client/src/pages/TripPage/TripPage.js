@@ -1,5 +1,5 @@
 import styled from 'styled-components/macro'
-import TripCard from '../TripCard/TripCard'
+import TripCard from '../../components/TripCard/TripCard'
 
 export default function TripPage({
   tripCards,
@@ -7,7 +7,7 @@ export default function TripPage({
   handleDeleteTrip,
 }) {
   return (
-    <TripWrapper>
+    <PageLayout>
       <Heading>Your planned Trips</Heading>
       {tripCards.length === 0 ? (
         <p>You have no planned Trips yet!</p>
@@ -29,13 +29,14 @@ export default function TripPage({
           onDeleteTrip={handleDeleteTrip}
         />
       ))}
-    </TripWrapper>
+    </PageLayout>
   )
 }
 
-const TripWrapper = styled.div`
+const PageLayout = styled.div`
   display: grid;
   gap: 20px;
+  justify-content: center;
   margin-top: 20px;
 `
 const Heading = styled.h2`
