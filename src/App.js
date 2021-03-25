@@ -17,7 +17,6 @@ export default function App() {
 
   return (
     <>
-      {console.log(tripCards)}
       <Switch>
         <Route exact path="/">
           <HomePage
@@ -52,7 +51,8 @@ export default function App() {
             <CityPage
               {...props}
               allSights={allSights}
-              onAddSight={addSightToTrip}
+              onAddSight={addSight}
+              tripCards={tripCards}
             />
           )}
         />
@@ -66,12 +66,20 @@ export default function App() {
     </>
   )
 
-  function addSightToTrip(sight, city) {
+  function addSight(sight, city) {
     const currentTripCard = tripCards.find(trip => trip.city === city)
     const index = tripCards.findIndex(trip => trip.city === city)
+    const currentSights = currentTripCard.sights
+
+    let newSights
+    if (currentSights.includes(sight)) {
+      newSights = currentSights.filter(item => item.name !== sight.name)
+    } else {
+      newSights = [...currentSights, sight]
+    }
     setTripCards([
       ...tripCards.slice(0, index),
-      { ...currentTripCard, sights: [...currentTripCard.sights, sight] },
+      { ...currentTripCard, sights: newSights },
       ...tripCards.slice(index + 1),
     ])
   }

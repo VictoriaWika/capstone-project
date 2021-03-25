@@ -2,17 +2,27 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../Button/Button'
 import GoBackButton from '../GoBackButton/GoBackButton'
+import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
+import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 
-export default function CityPage({ allSights, onAddSight }) {
+export default function CityPage({ allSights, onAddSight, tripCards }) {
   const { city } = useParams()
+  const currentTripCard = tripCards.find(trip => trip.city === city)
+  const currentSights = currentTripCard.sights.map(item => item.name)
 
   return (
     <PageLayout>
       <GoBackButton />
       <h1>Trip to: {city}</h1>
-      {allSights.map((sight, index) => (
-        <SightWrapper key={sight.image} sightIndex={index}>
-          <Button onClick={() => onAddSight(sight, city)}>+ add to trip</Button>
+      {allSights.map(sight => (
+        <SightWrapper key={sight.image}>
+          <AddButton
+            onClick={() => {
+              onAddSight(sight, city)
+            }}
+          >
+            {currentSights.includes(sight.name) ? <CheckSVG /> : <PlusSVG />}
+          </AddButton>
           <div>
             <AttractionName>{sight.name}</AttractionName>
             <Image src={sight.image} width="335" height="335" alt="" />
@@ -30,6 +40,9 @@ const SightWrapper = styled.div`
   position: relative;
   display: grid;
   gap: 10px;
+`
+const AddButton = styled(Button)`
+  padding-top: 8px;
 `
 const AttractionName = styled.div`
   position: absolute;

@@ -20,9 +20,9 @@ export default function TripPage({
       {tripCards.map(card => (
         <TripCard
           key={card.id}
-          // index={index}
           id={card.id}
           city={card.city}
+          sights={card.sights}
           startDate={card.startDate}
           endDate={card.endDate}
           setTripCards={setTripCards}
