@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
 import CityPage from './components/CityPage/CityPage'
@@ -9,11 +10,18 @@ import SearchPage from './components/SearchPage/SearchPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
 import TripPage from './components/TripPage/TripPage'
 import useLocalStorage from './hooks/useLocalStorage'
+import getSights from './services/getSights'
 
 export default function App() {
   const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
   const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
+
+  const [sights, setSights] = useState([])
+
+  useEffect(() => {
+    getSights().then(data => setSights([...data]))
+  }, [])
 
   return (
     <>
