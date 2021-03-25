@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
+import CityPage from './components/CityPage/CityPage'
 import CreatePage from './components/CreatePage/CreatePage'
 import HomePage from './components/HomePage/HomePage'
 import LikePage from './components/LikePage/LikePage'
@@ -21,7 +22,6 @@ export default function App() {
           <HomePage
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
-            allSights={allSights}
             onSightRandomizer={sightRandomizer}
           />
         </Route>
@@ -45,6 +45,17 @@ export default function App() {
             handleDeleteTrip={deleteTrip}
           />
         </Route>
+        <Route
+          path="/:city"
+          render={props => (
+            <CityPage
+              {...props}
+              allSights={allSights}
+              onAddSight={addSight}
+              tripCards={tripCards}
+            />
+          )}
+        />
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
         <Navigation />
@@ -54,6 +65,24 @@ export default function App() {
       </Route>
     </>
   )
+
+  function addSight(sight, city) {
+    const currentTripCard = tripCards.find(trip => trip.city === city)
+    const index = tripCards.findIndex(trip => trip.city === city)
+    const currentSights = currentTripCard.sights
+
+    let newSights
+    if (currentSights.includes(sight)) {
+      newSights = currentSights.filter(item => item.name !== sight.name)
+    } else {
+      newSights = [...currentSights, sight]
+    }
+    setTripCards([
+      ...tripCards.slice(0, index),
+      { ...currentTripCard, sights: newSights },
+      ...tripCards.slice(index + 1),
+    ])
+  }
 
   function createTrip(newTripCard) {
     setTripCards([newTripCard, ...tripCards])

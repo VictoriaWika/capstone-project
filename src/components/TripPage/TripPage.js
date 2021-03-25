@@ -9,12 +9,20 @@ export default function TripPage({
   return (
     <TripWrapper>
       <Heading>Your planned Trips</Heading>
-      {tripCards.length === 0 && <p>You have no planned Trips yet!</p>}
+      {tripCards.length === 0 ? (
+        <p>You have no planned Trips yet!</p>
+      ) : (
+        <span>
+          You have {tripCards.length}{' '}
+          {tripCards.length === 1 ? 'trip' : 'trips'} planned
+        </span>
+      )}
       {tripCards.map(card => (
         <TripCard
           key={card.id}
           id={card.id}
           city={card.city}
+          sights={card.sights}
           startDate={card.startDate}
           endDate={card.endDate}
           setTripCards={setTripCards}
