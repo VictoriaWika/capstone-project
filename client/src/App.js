@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
+import Navigation from './components/Navigation/Navigation'
+import TripNavigation from './components/TripNavigation/TripNavigation'
+import useLocalStorage from './hooks/useLocalStorage'
 import CityPage from './pages/CityPage/CityPage'
 import CreatePage from './pages/CreatePage/CreatePage'
 import HomePage from './pages/HomePage/HomePage'
 import LikePage from './pages/LikePage/LikePage'
-import Navigation from './components/Navigation/Navigation'
 import SearchPage from './pages/SearchPage/SearchPage'
-import TripNavigation from './components/TripNavigation/TripNavigation'
 import TripPage from './pages/TripPage/TripPage'
-import useLocalStorage from './hooks/useLocalStorage'
-import useSights from './hooks/useSights'
 
 export default function App() {
   const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
   const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
-  const sights = useSights()
 
   return (
     <>
