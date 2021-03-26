@@ -10,17 +10,13 @@ import SearchPage from './pages/SearchPage/SearchPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
 import TripPage from './pages/TripPage/TripPage'
 import useLocalStorage from './hooks/useLocalStorage'
-import getSights from './services/getSights'
+import useSights from './hooks/useSights'
 
 export default function App() {
   const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
   const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
-  const [sights, setSights] = useState([])
-
-  useEffect(() => {
-    getSights().then(data => setSights([...data]))
-  }, [])
+  const sights = useSights()
 
   return (
     <>

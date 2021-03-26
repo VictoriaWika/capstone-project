@@ -3,11 +3,11 @@ const setupMongo = require('./setupMongo')
 require('dotenv').config()
 const { PORT = 4000 } = process.env
 
-setupMongo()
 const app = express()
+setupMongo()
 
-app.use(express.json()) // add middleware for json data
-
+app.use('/', express.json())
+app.use(express.static('.client/build'))
 app.use('/api/sights', require('./routes/sights'))
 app.use(require('./routes/error'))
 

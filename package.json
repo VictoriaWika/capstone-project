@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel server client",
+    "start": "node server.js",
     "build": "cd client && npm run build",
     "dev": "npm-run-all --parallel server client",
     "server": "nodemon server.js",
@@ -17,12 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/VictoriaWika/capstone-project.git"
   },
-  "author": "",
+  "keywords": [],
+  "author": "Victoria Wika",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/VictoriaWika/capstone-project/issues"
-  },
-  "homepage": "https://github.com/VictoriaWika/capstone-project#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

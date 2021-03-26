@@ -1,9 +1,9 @@
 const express = require('express')
-const Sights = require('../models/Sights')
+const Sight = require('../models/Sight')
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
-  res.json(await Sights.find().catch(next))
+  res.json(await Sight.find().catch(next))
 })
 
 module.exports = router

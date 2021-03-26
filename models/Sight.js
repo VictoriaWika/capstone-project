@@ -17,4 +17,5 @@ const schema = new mongoose.Schema({
     type: String,
   },
 })
-module.exports = mongoose.model('Sights', schema)
+
+module.exports = mongoose.model('Sight', schema)
