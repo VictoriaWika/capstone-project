@@ -1,8 +1,11 @@
+import { useRef, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
+import NavIcon from './components/NavIcon/NavIcon'
 import Navigation from './components/Navigation/Navigation'
 import TripNavigation from './components/TripNavigation/TripNavigation'
 import useLocalStorage from './hooks/useLocalStorage'
+import useOnClickOutside from './hooks/useOnClickOutside'
 import CityPage from './pages/CityPage/CityPage'
 import CreatePage from './pages/CreatePage/CreatePage'
 import HomePage from './pages/HomePage/HomePage'
@@ -14,12 +17,16 @@ export default function App() {
   const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])
   const [tripCards, setTripCards] = useLocalStorage('tripCards', [])
   const allSights = cities.flatMap(city => city.attraction)
+  const [open, setOpen] = useState(false)
+  const node = useRef()
+  useOnClickOutside(node, () => setOpen(false))
 
   return (
     <>
       <Switch>
         <Route exact path="/">
           <HomePage
+            open={open}
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
             onSightRandomizer={sightRandomizer}
@@ -27,19 +34,25 @@ export default function App() {
         </Route>
         <Route path="/liked">
           <LikePage
+            open={open}
             likedPlaces={likedPlaces}
             handleAddLike={addLike}
             allSights={allSights}
           />
         </Route>
         <Route path="/search">
-          <SearchPage handleAddLike={addLike} likedPlaces={likedPlaces} />
+          <SearchPage
+            open={open}
+            handleAddLike={addLike}
+            likedPlaces={likedPlaces}
+          />
         </Route>
         <Route path="/createtrip">
-          <CreatePage handleCreateTrip={createTrip} />
+          <CreatePage open={open} handleCreateTrip={createTrip} />
         </Route>
         <Route path="/trips">
           <TripPage
+            open={open}
             tripCards={tripCards}
             setTripCards={setTripCards}
             handleDeleteTrip={deleteTrip}
@@ -50,6 +63,7 @@ export default function App() {
           render={props => (
             <CityPage
               {...props}
+              open={open}
               allSights={allSights}
               onAddSight={addSight}
               tripCards={tripCards}
@@ -58,7 +72,10 @@ export default function App() {
         />
       </Switch>
       <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
-        <Navigation />
+        <div ref={node}>
+          <NavIcon open={open} setOpen={setOpen} />
+          <Navigation open={open} setOpen={setOpen} />
+        </div>
       </Route>
       <Route exact path={['/createtrip', '/trips']}>
         <TripNavigation />

@@ -1,9 +1,16 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
+import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 
-export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
+export default function LikePage({
+  allSights,
+  handleAddLike,
+  likedPlaces,
+  open,
+}) {
   const [userInput, setUserInput] = useState('')
   const filteredPlaces = allSights
     .filter(sights => likedPlaces.includes(sights.name))
@@ -13,6 +20,7 @@ export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
 
   return (
     <PageLayout>
+      {open === true && <Overlay />}
       <Searchbar userInput={userInput} setUserInput={setUserInput} />
       <Heading>Your liked Places</Heading>
       {likedPlaces.length === 0 && <p>You haven't liked anything yet!</p>}
@@ -27,6 +35,13 @@ export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
       ))}
     </PageLayout>
   )
+}
+
+LikePage.propTypes = {
+  allSights: PropTypes.array,
+  handleAddLike: PropTypes.func,
+  likedPlaces: PropTypes.array,
+  open: PropTypes.bool,
 }
 
 const PageLayout = styled.div`

@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
-import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
+import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 
 export default function CityPage({ allSights, onAddSight, tripCards }) {
   const { city } = useParams()
@@ -20,6 +21,7 @@ export default function CityPage({ allSights, onAddSight, tripCards }) {
             onClick={() => {
               onAddSight(sight, city)
             }}
+            aria-label="toggle-add-sight"
           >
             {currentSights.includes(sight.name) ? <CheckSVG /> : <PlusSVG />}
           </AddButton>
@@ -32,6 +34,13 @@ export default function CityPage({ allSights, onAddSight, tripCards }) {
     </PageLayout>
   )
 }
+
+CityPage.propTypes = {
+  allSights: PropTypes.array,
+  onAddSight: PropTypes.func,
+  tripCards: PropTypes.array,
+}
+
 const PageLayout = styled.div`
   display: grid;
   gap: 10px;

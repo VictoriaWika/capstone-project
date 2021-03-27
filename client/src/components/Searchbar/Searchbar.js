@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 export default function Searchbar({ userInput, setUserInput }) {
@@ -13,6 +14,11 @@ export default function Searchbar({ userInput, setUserInput }) {
       </Label>
     </Form>
   )
+}
+
+Searchbar.propTypes = {
+  userInput: PropTypes.string,
+  setUserInput: PropTypes.func,
 }
 
 const Form = styled.form`

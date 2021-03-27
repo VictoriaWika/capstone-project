@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
+import { cities } from '../../capstone.json'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
-import { cities } from '../../capstone.json'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function CreateForm({ onCreateTrip }) {
   return (
-    <Form data-testid="form" onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
       <Heading>Plan your Trip</Heading>
       <label>
         City
@@ -43,6 +44,10 @@ export default function CreateForm({ onCreateTrip }) {
     })
     form.reset()
   }
+}
+
+CreateForm.propTypes = {
+  onCreateTrip: PropTypes.func,
 }
 
 const Form = styled.form`

@@ -1,13 +1,17 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Overlay from '../../components/Overlay/Overlay'
 import TripCard from '../../components/TripCard/TripCard'
 
 export default function TripPage({
-  tripCards,
-  setTripCards,
   handleDeleteTrip,
+  open,
+  setTripCards,
+  tripCards,
 }) {
   return (
     <PageLayout>
+      {open === true && <Overlay />}
       <Heading>Your planned Trips</Heading>
       {tripCards.length === 0 ? (
         <p>You have no planned Trips yet!</p>
@@ -31,6 +35,12 @@ export default function TripPage({
       ))}
     </PageLayout>
   )
+}
+
+TripPage.propTypes = {
+  tripCards: PropTypes.array,
+  setTripCards: PropTypes.func,
+  handleDeleteTrip: PropTypes.func,
 }
 
 const PageLayout = styled.div`

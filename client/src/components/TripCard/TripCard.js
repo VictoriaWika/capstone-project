@@ -1,16 +1,17 @@
-import styled from 'styled-components/macro'
-import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
+import Button from '../Button/Button'
 
 export default function TripCard({
   city,
+  endDate,
   id,
+  onDeleteTrip,
   sights,
   startDate,
-  endDate,
-  onDeleteTrip,
 }) {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -21,7 +22,7 @@ export default function TripCard({
         <span>{startDate}</span>
         <span>{endDate}</span>
       </DateWrapper>
-      <AddButton as={Link} to={`/${city}`}>
+      <AddButton as={Link} to={`/${city}`} aria-label="navigate-to-add-sights">
         <PlusSVG /> Add sights
       </AddButton>
       <ShowMoreButton
@@ -29,6 +30,7 @@ export default function TripCard({
           event.stopPropagation()
           setIsVisible(!isVisible)
         }}
+        aria-label="toggle-details"
       >
         {!isVisible ? 'Show more' : 'Show less'}
       </ShowMoreButton>
@@ -55,6 +57,16 @@ export default function TripCard({
     </Card>
   )
 }
+
+TripCard.propTypes = {
+  city: PropTypes.string,
+  id: PropTypes.string,
+  sights: PropTypes.array,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  onDeleteTrip: PropTypes.func,
+}
+
 const Card = styled.div`
   background: var(--color-bg-light);
   padding: 20px;
