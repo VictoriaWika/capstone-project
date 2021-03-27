@@ -64,9 +64,9 @@ const Nav = styled.nav`
 `
 const NavButton = styled.button`
   font-size: 20px;
+  text-decoration: none;
   text-transform: uppercase;
   padding: 2rem 0;
-  letter-spacing: 0.1rem;
   color: #0d0c1d;
   transition: color 0.5s linear;
   color: var(--color-darkgrey);

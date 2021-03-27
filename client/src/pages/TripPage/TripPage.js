@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import TripCard from '../../components/TripCard/TripCard'
+import ScrollToTop from '../../services/ScrollToTop'
 
 export default function TripPage({
   handleDeleteTrip,
@@ -11,8 +13,10 @@ export default function TripPage({
 }) {
   return (
     <PageLayout>
+      <ScrollToTop />
+      <Header />
       {open === true && <Overlay />}
-      <Heading>Your planned Trips</Heading>
+      <Heading>Trips</Heading>
       {tripCards.length === 0 ? (
         <p>You have no planned Trips yet!</p>
       ) : (

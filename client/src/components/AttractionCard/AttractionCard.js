@@ -43,13 +43,13 @@ const AttractionName = styled.div`
   width: 100%;
   bottom: 4px;
   left: 0;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   background: var(--color-bg-light);
   padding: 10px;
 `
 const Image = styled.img`
-  border-radius: 24px;
+  border-radius: 12px;
   height: auto;
 `
 const LikeButton = styled.span`

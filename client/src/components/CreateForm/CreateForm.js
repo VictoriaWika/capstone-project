@@ -8,7 +8,6 @@ import Input from '../Input/Input'
 export default function CreateForm({ onCreateTrip }) {
   return (
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
-      <Heading>Plan your Trip</Heading>
       <label>
         City
         <Select required name="city" data-testid="select">
@@ -53,21 +52,18 @@ CreateForm.propTypes = {
 const Form = styled.form`
   display: grid;
   gap: 16px;
-  background: var(--color-bg-light);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  border-radius: 12px;
   padding: 20px;
   width: 335px;
-  margin: 30px auto 0;
-`
-const Heading = styled.h2`
-  margin: 5px 0;
+  margin: 75px auto 0;
 `
 const Select = styled.select`
   appearance: none;
   border: 1px var(--color-lightgrey) solid;
-  box-shadow: 1px 1px 2px var(--color-lightgrey);
+  border-radius: 8px;
   width: 100%;
   font-family: inherit;
-  padding: 2px;
-  padding-top: 5px;
+  padding: 5px;
   font-size: inherit;
 `

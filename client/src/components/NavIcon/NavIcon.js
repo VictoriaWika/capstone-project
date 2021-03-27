@@ -15,20 +15,19 @@ NavIcon.propTypes = {
   open: PropTypes.bool.isRequired,
   setOpen: PropTypes.func.isRequired,
 }
-
 const StyledNavIcon = styled.button`
   position: fixed;
-  top: 5px;
+  top: 7.5px;
   left: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
   z-index: var(--zindex-navicon);
 
   &:focus {
@@ -36,8 +35,8 @@ const StyledNavIcon = styled.button`
   }
 
   div {
-    width: 30px;
-    height: 0.25rem;
+    width: 20px;
+    height: 2px;
     background: black;
     border-radius: 10px;
     transition: all 0.7s ease-in-out;

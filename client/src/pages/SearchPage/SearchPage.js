@@ -3,18 +3,26 @@ import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { cities } from '../../capstone.json'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
+import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
+import ScrollToTop from '../../services/ScrollToTop'
 
 export default function SearchPage({ handleAddLike, likedPlaces, open }) {
   const [userInput, setUserInput] = useState('')
   return (
     <PageLayout>
+      <ScrollToTop />
+      <Header />
       {open === true && <Overlay />}
-      <Searchbar userInput={userInput} setUserInput={setUserInput} />
-      {cities.map(({ name, attraction, id }) => (
+      <Heading>Search the world</Heading>
+      <Searchbar
+        userInput={userInput}
+        setUserInput={setUserInput}
+        text={'Wanderlust?'}
+      />
+      {cities.map(({ attraction, id }) => (
         <CardLayout key={id}>
-          <h2>{name}</h2>
           {attraction
             .filter(item =>
               item.name.toLowerCase().includes(userInput.toLowerCase().trim())
@@ -44,9 +52,12 @@ const PageLayout = styled.div`
   display: grid;
   justify-content: center;
   margin-top: 20px;
-  gap: 10px;
+  gap: 16px;
 `
 const CardLayout = styled.div`
   display: grid;
-  gap: 10px;
+  gap: 16px;
+`
+const Heading = styled.h2`
+  margin-bottom: 0;
 `

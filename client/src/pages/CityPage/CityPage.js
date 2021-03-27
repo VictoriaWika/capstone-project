@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
+import Header from '../../components/Header/Header'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
+import ScrollToTop from '../../services/ScrollToTop'
 
 export default function CityPage({ allSights, onAddSight, tripCards }) {
   const { city } = useParams()
@@ -13,8 +15,10 @@ export default function CityPage({ allSights, onAddSight, tripCards }) {
 
   return (
     <PageLayout>
+      <ScrollToTop />
+      <Header />
       <GoBackButton />
-      <h1>Trip to: {city}</h1>
+      <Heading>Trip to: {city}</Heading>
       {allSights.map(sight => (
         <SightWrapper key={sight.image}>
           <AddButton
@@ -43,16 +47,23 @@ CityPage.propTypes = {
 
 const PageLayout = styled.div`
   display: grid;
-  gap: 10px;
+  gap: 16px;
   justify-content: center;
+`
+const Heading = styled.h2`
+  margin: 40px 0 0;
 `
 const SightWrapper = styled.div`
   position: relative;
   display: grid;
-  gap: 10px;
+  gap: 16px;
 `
 const AddButton = styled(Button)`
-  padding-top: 8px;
+  padding: 7px 12.5px;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: var(--zindex-absolute);
 `
 const AttractionName = styled.div`
   position: absolute;
@@ -60,12 +71,12 @@ const AttractionName = styled.div`
   width: 100%;
   bottom: 4px;
   left: 0;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   background: var(--color-bg-light);
   padding: 10px;
 `
 const Image = styled.img`
-  border-radius: 24px;
+  border-radius: 12px;
   height: auto;
 `

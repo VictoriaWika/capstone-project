@@ -51,7 +51,9 @@ export default function TripCard({
                 ))
               : 'Add sights and they will be displayed here'}
           </FlexContainer>
-          <DeleteButton onClick={() => onDeleteTrip(id)}>✕</DeleteButton>
+          <DeleteButton onClick={() => onDeleteTrip(id)}>
+            Delete trip
+          </DeleteButton>
         </>
       )}
     </Card>
@@ -68,7 +70,8 @@ TripCard.propTypes = {
 }
 
 const Card = styled.div`
-  background: var(--color-bg-light);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  border-radius: 12px;
   padding: 20px;
   width: 335px;
   display: grid;
@@ -88,22 +91,20 @@ const DateWrapper = styled.div`
 `
 const ShowMoreButton = styled(Button)`
   margin: 0 auto;
+  background: transparent;
+  color: black;
   width: 150px;
 `
 const AddButton = styled(Button)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 150px;
   text-decoration: none;
-  color: black;
-  padding: 10px;
-  border-radius: 0;
 `
 const DeleteButton = styled(Button)`
   display: inline;
-  color: red;
-  border: 0.15em solid red;
+  color: #f80759;
+  border: 0.15em solid #f80759;
   background: transparent;
   padding: 5px;
 `

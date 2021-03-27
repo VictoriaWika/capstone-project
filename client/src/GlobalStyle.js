@@ -5,8 +5,10 @@ export default createGlobalStyle`
 --color-bg-light: rgba(250, 250, 250, 0.9);
 --color-overlay: rgba(74, 74, 74, 0.5);
 --color-white: #fff;
---color-lightgrey: #eee;
+--color-lightgrey: #ddd;
 --color-darkgrey: #bbb;
+
+--color-text: #222;
 
 --zindex-absolute: 20;
 --zindex-fixed: 30;
@@ -18,8 +20,13 @@ export default createGlobalStyle`
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
+  color: var(--color-text);
   /* by setting font-size in %, 
   there is no interferance with potential user settings */
   font-size: 112.5%; 

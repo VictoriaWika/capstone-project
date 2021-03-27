@@ -5,6 +5,7 @@ import AttractionCard from '../../components/AttractionCard/AttractionCard'
 import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
+import ScrollToTop from '../../services/ScrollToTop'
 
 export default function HomePage({
   handleAddLike,
@@ -13,17 +14,13 @@ export default function HomePage({
   open,
 }) {
   const [randomSights, setRandomSights] = useState(onSightRandomizer())
+
   return (
     <PageLayout>
+      <ScrollToTop />
+      <Header />
       {open === true && <Overlay />}
-      <Header title="Travelr" />
-      <Heading>Discover</Heading>
-      <Button
-        onClick={() => setRandomSights(onSightRandomizer())}
-        aria-label="shuffle-random-suggestions"
-      >
-        Show new sights
-      </Button>
+      <Heading>Discover the world</Heading>
       {randomSights.map(item => (
         <AttractionCard
           key={item.name}
@@ -35,6 +32,14 @@ export default function HomePage({
           {item.name}
         </AttractionCard>
       ))}
+      <Button
+        onClick={() => {
+          setRandomSights(onSightRandomizer())
+        }}
+        aria-label="shuffle-random-suggestions"
+      >
+        Show new sights
+      </Button>
     </PageLayout>
   )
 }
@@ -48,7 +53,7 @@ HomePage.propTypes = {
 
 const PageLayout = styled.div`
   display: grid;
-  gap: 10px;
+  gap: 16px;
   justify-content: center;
   margin-top: 20px;
 `

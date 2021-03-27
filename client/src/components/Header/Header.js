@@ -1,15 +1,15 @@
 import styled from 'styled-components/macro'
 
-export default function Header({ title }) {
+export default function Header() {
   return (
     <AppHeader>
-      <h1>{title}</h1>
+      <h1>Travelr</h1>
     </AppHeader>
   )
 }
 const AppHeader = styled.header`
   text-align: center;
-  background: var(--color-lightgrey);
+  background: var(--color-white);
   position: fixed;
   top: 0;
   left: 0;

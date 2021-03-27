@@ -18,7 +18,7 @@ const NavWrapper = styled.div`
   display: flex;
   justify-content: space-evenly;
   position: fixed;
-  top: 0;
+  top: 100px;
   left: 0;
   right: 0;
   width: 100%;

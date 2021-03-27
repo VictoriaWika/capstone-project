@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Input from '../Input/Input'
 
-export default function Searchbar({ userInput, setUserInput }) {
+export default function Searchbar({ userInput, setUserInput, text }) {
   return (
     <Form>
       <Label>
-        Sightseeing attraction:
-        <input
+        <Input
           value={userInput}
           onChange={event => setUserInput(event.target.value)}
-          placeholder="Times Square"
+          placeholder={text}
         />
       </Label>
     </Form>
