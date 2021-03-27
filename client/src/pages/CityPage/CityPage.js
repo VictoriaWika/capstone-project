@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import Button from '../Button/Button'
-import GoBackButton from '../GoBackButton/GoBackButton'
+import Button from '../../components/Button/Button'
+import GoBackButton from '../../components/GoBackButton/GoBackButton'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 
@@ -35,6 +35,7 @@ export default function CityPage({ allSights, onAddSight, tripCards }) {
 const PageLayout = styled.div`
   display: grid;
   gap: 10px;
+  justify-content: center;
 `
 const SightWrapper = styled.div`
   position: relative;

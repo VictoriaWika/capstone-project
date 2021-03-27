@@ -9,7 +9,7 @@
         { "name": "Bairro Alto", "image": "./images/Bairro_Alto.webp" },
         {
           "name": "Catedral Sé Patriarcal",
-          "image": "./images/Catedral_Sé_Patriarcal.webp"
+          "image": "./images/Catedral_Se_Patriarcal.webp"
         },
         {
           "name": "Elevador de Santa Justa",
@@ -17,7 +17,7 @@
         },
         {
           "name": "Padrão dos Descobrimentos",
-          "image": "./images/Padrão_dos_Descobrimentos.webp"
+          "image": "./images/Padrao_dos_Descobrimentos.webp"
         },
         {
           "name": "Ponte 25 de Abril",
@@ -25,9 +25,9 @@
         },
         {
           "name": "Praça do Comércio",
-          "image": "./images/Praça_do_Comércio.webp"
+          "image": "./images/Praca_do_Comercio.webp"
         },
-        { "name": "Torre de Belém", "image": "./images/Torre_de_Belém.webp" },
+        { "name": "Torre de Belém", "image": "./images/Torre_de_Belem.webp" },
         { "name": "Tram 28", "image": "./images/Tram_28.webp" }
       ]
     },

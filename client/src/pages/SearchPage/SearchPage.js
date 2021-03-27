@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { cities } from '../../capstone.json'
-import AttractionCard from '../AttractionCard/AttractionCard'
-import Searchbar from '../Searchbar/Searchbar'
+import AttractionCard from '../../components/AttractionCard/AttractionCard'
+import Searchbar from '../../components/Searchbar/Searchbar'
 
 export default function SearchPage({ handleAddLike, likedPlaces }) {
   const [userInput, setUserInput] = useState('')
   return (
-    <>
+    <PageLayout>
       <Searchbar userInput={userInput} setUserInput={setUserInput} />
       {cities.map(({ name, attraction, id }) => (
         <CardLayout key={id}>
@@ -27,10 +27,15 @@ export default function SearchPage({ handleAddLike, likedPlaces }) {
             ))}
         </CardLayout>
       ))}
-    </>
+    </PageLayout>
   )
 }
-
+const PageLayout = styled.div`
+  display: grid;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+`
 const CardLayout = styled.div`
   display: grid;
   gap: 10px;

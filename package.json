@@ -1,55 +1,30 @@
 {
-  "name": "capstone-project",
-  "author": "Victoria Wika",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.1",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "styled-components": "^5.2.1",
-    "uuid": "^8.3.2",
-    "web-vitals": "^1.1.0"
-  },
+  "name": "backend-capstone-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "start": "node server.js",
+    "build": "cd client && npm run build",
+    "dev": "npm-run-all --parallel server client",
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "test": "cd client && npm test",
+    "storybook": "cd client && npm run storybook",
+    "postinstall": "cd client && npm install"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ],
-    "rules": {
-      "import/no-anonymous-default-export": "off"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VictoriaWika/capstone-project.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@storybook/addon-actions": "^6.1.21",
-    "@storybook/addon-essentials": "^6.1.21",
-    "@storybook/addon-links": "^6.1.21",
-    "@storybook/node-logger": "^6.1.21",
-    "@storybook/preset-create-react-app": "^3.1.6",
-    "@storybook/react": "^6.1.21"
+  "keywords": [],
+  "author": "Victoria Wika",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.2",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5"
   }
 }

@@ -1,14 +1,14 @@
 import { Route, Switch } from 'react-router-dom'
 import { cities } from './capstone.json'
-import CityPage from './components/CityPage/CityPage'
-import CreatePage from './components/CreatePage/CreatePage'
-import HomePage from './components/HomePage/HomePage'
-import LikePage from './components/LikePage/LikePage'
 import Navigation from './components/Navigation/Navigation'
-import SearchPage from './components/SearchPage/SearchPage'
 import TripNavigation from './components/TripNavigation/TripNavigation'
-import TripPage from './components/TripPage/TripPage'
 import useLocalStorage from './hooks/useLocalStorage'
+import CityPage from './pages/CityPage/CityPage'
+import CreatePage from './pages/CreatePage/CreatePage'
+import HomePage from './pages/HomePage/HomePage'
+import LikePage from './pages/LikePage/LikePage'
+import SearchPage from './pages/SearchPage/SearchPage'
+import TripPage from './pages/TripPage/TripPage'
 
 export default function App() {
   const [likedPlaces, setLikedPlaces] = useLocalStorage('liked places', [])

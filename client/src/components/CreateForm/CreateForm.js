@@ -51,7 +51,7 @@ const Form = styled.form`
   background: var(--color-bg-light);
   padding: 20px;
   width: 335px;
-  margin-top: 30px;
+  margin: 30px auto 0;
 `
 const Heading = styled.h2`
   margin: 5px 0;

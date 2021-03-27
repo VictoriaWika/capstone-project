@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import AttractionCard from '../AttractionCard/AttractionCard'
-import Searchbar from '../Searchbar/Searchbar'
+import AttractionCard from '../../components/AttractionCard/AttractionCard'
+import Searchbar from '../../components/Searchbar/Searchbar'
 
 export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
   const [userInput, setUserInput] = useState('')
@@ -10,6 +10,7 @@ export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
     .filter(sights =>
       sights.name.toLowerCase().includes(userInput.toLowerCase().trim())
     )
+
   return (
     <PageLayout>
       <Searchbar userInput={userInput} setUserInput={setUserInput} />
@@ -31,6 +32,7 @@ export default function LikePage({ allSights, likedPlaces, handleAddLike }) {
 const PageLayout = styled.div`
   display: grid;
   gap: 10px;
+  justify-content: center;
 `
 const Heading = styled.h2`
   margin-bottom: 0;
