@@ -11,7 +11,7 @@ const DefaultTripCard = args => <TripCard {...args} />
 export const PrimaryTripCard = DefaultTripCard.bind({})
 
 PrimaryTripCard.args = {
-  city: 'Lisbon',
+  location: 'Lisbon',
   startDate: '2021-03-10',
   endDate: '2021-03-22',
   onDeleteTrip: action('onClick'),

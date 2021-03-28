@@ -7,17 +7,12 @@ import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
 
-export default function LikePage({
-  allSights,
-  handleAddLike,
-  likedPlaces,
-  open,
-}) {
+export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   const [userInput, setUserInput] = useState('')
-  const filteredPlaces = allSights
-    .filter(sights => likedPlaces.includes(sights.name))
-    .filter(sights =>
-      sights.name.toLowerCase().includes(userInput.toLowerCase().trim())
+  const filteredPlaces = sights
+    .filter(sight => likedPlaces.includes(sight.name))
+    .filter(sight =>
+      sight.name.toLowerCase().includes(userInput.toLowerCase().trim())
     )
 
   return (
@@ -46,7 +41,7 @@ export default function LikePage({
 }
 
 LikePage.propTypes = {
-  allSights: PropTypes.array,
+  sights: PropTypes.array,
   handleAddLike: PropTypes.func,
   likedPlaces: PropTypes.array,
   open: PropTypes.bool,

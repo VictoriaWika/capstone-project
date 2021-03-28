@@ -5,7 +5,11 @@ import TripCard from './TripCard'
 describe('TripCard', () => {
   it('renders the heading, the start and the end date and the delete button', () => {
     render(
-      <TripCard city="New York" startDate="2021-03-15" endDate="2021-03-24" />
+      <TripCard
+        location="New York"
+        startDate="2021-03-15"
+        endDate="2021-03-24"
+      />
     )
     expect(screen.getByText('New York')).toBeInTheDocument()
     expect(screen.getByText('2021 03/15')).toBeInTheDocument()
@@ -17,7 +21,7 @@ describe('TripCard', () => {
     const callback = jest.fn()
     render(
       <TripCard
-        city="New York"
+        location="New York"
         startDate="2021-03-15"
         endDate="2021-03-24"
         onDeleteTrip={callback}

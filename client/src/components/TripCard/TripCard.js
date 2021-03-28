@@ -6,8 +6,9 @@ import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import Button from '../Button/Button'
 
 export default function TripCard({
-  city,
+  continent,
   endDate,
+  location,
   id,
   onDeleteTrip,
   sights,
@@ -17,12 +18,17 @@ export default function TripCard({
 
   return (
     <Card>
-      <Heading>{city}</Heading>
+      <Heading>{location}</Heading>
+      <span>{continent}</span>
       <DateWrapper>
         <span>{startDate}</span>
         <span>{endDate}</span>
       </DateWrapper>
-      <AddButton as={Link} to={`/${city}`} aria-label="navigate-to-add-sights">
+      <AddButton
+        as={Link}
+        to={`/${location}`}
+        aria-label="navigate-to-add-sights"
+      >
         <PlusSVG /> Add sights
       </AddButton>
       <ShowMoreButton
@@ -36,14 +42,18 @@ export default function TripCard({
       </ShowMoreButton>
       {isVisible && (
         <>
+          {sights.length !== 0 &&
+            `You added ${sights.length} ${
+              sights.length === 1 ? 'sight' : 'sights'
+            } to your trip`}
           <FlexContainer>
             {sights.length !== 0
               ? sights.map(sight => (
                   <div>
                     <Image
                       src={sight.image}
-                      width="150"
-                      height="150"
+                      width="200"
+                      height="200"
                       alt=""
                     ></Image>{' '}
                     {sight.name}
@@ -61,7 +71,8 @@ export default function TripCard({
 }
 
 TripCard.propTypes = {
-  city: PropTypes.string,
+  continent: PropTypes.string,
+  location: PropTypes.string,
   id: PropTypes.string,
   sights: PropTypes.array,
   startDate: PropTypes.string,

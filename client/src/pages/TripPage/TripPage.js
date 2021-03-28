@@ -29,7 +29,8 @@ export default function TripPage({
         <TripCard
           key={card.id}
           id={card.id}
-          city={card.city}
+          location={card.location}
+          continent={card.continent}
           sights={card.sights}
           startDate={card.startDate}
           endDate={card.endDate}

@@ -5,14 +5,14 @@ import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import ScrollToTop from '../../services/ScrollToTop'
 
-export default function CreatePage({ handleCreateTrip, open }) {
+export default function CreatePage({ handleCreateTrip, open, sights }) {
   return (
     <>
       <ScrollToTop />
       <Header />
       {open === true && <Overlay />}
       <Heading>Trips</Heading>
-      <CreateForm onCreateTrip={handleCreateTrip} />
+      <CreateForm onCreateTrip={handleCreateTrip} sights={sights} />
     </>
   )
 }

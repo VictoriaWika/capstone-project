@@ -39,14 +39,10 @@ const Card = styled.div`
 `
 const AttractionName = styled.div`
   position: absolute;
-  text-align: center;
-  width: 100%;
-  bottom: 4px;
-  left: 0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background: var(--color-bg-light);
-  padding: 10px;
+  bottom: 16px;
+  left: 16px;
+  width: 80%;
+  color: var(--color-white);
 `
 const Image = styled.img`
   border-radius: 12px;

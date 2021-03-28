@@ -1,21 +1,47 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
-import { cities } from '../../capstone.json'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
+import LocationPerContinent from '../../LocationPerContinent.json'
 
-export default function CreateForm({ onCreateTrip }) {
+export default function CreateForm({ onCreateTrip, sights }) {
+  const allSightsContinents = sights.map(({ continent }) => continent)
+  const continents = [...new Set(allSightsContinents)]
+  const allSightsLocations = sights.map(({ location }) => location)
+  const locations = [...new Set(allSightsLocations)]
+  const all = LocationPerContinent //.flatMap(item => item.continent)
+  const africa = LocationPerContinent[0]
+  // const asia = LocationPerContinent[1]
+  // const europa = LocationPerContinent[2]
+  // const northAmerica = LocationPerContinent[3]
+  // const oceania = LocationPerContinent[4]
+  // const southAmerica = LocationPerContinent[5]
+
+  // const indeOfLocal = LocationPerContinent.map(
+  //   item => item.continent
+  // ).findIndex(trip => trip.continent === continent)
+  const cities = LocationPerContinent.map(item => item.locations)
   return (
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
       <label>
-        City
-        <Select required name="city" data-testid="select">
-          {cities.map(({ name, id }) => (
-            <option key={id} data-testid={name}>
-              {name}
+        Continent
+        <Select required name="continent" data-testid="select">
+          {all.map(({ continent }) => (
+            <option key={uuidv4()} name={continent} data-testid={continent}>
+              {continent}
             </option>
           ))}
+        </Select>
+      </label>
+      <label>
+        Location
+        <Select required name="location">
+          {console.log(africa, cities, all)}
+          {africa.continent === 'Africa' &&
+            africa.locations.map(city => (
+              <option key={uuidv4()}>{city}</option>
+            ))}
         </Select>
       </label>
       <label>
@@ -29,14 +55,16 @@ export default function CreateForm({ onCreateTrip }) {
       <Button>Create Trip</Button>
     </Form>
   )
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const { city, startDate, endDate } = form.elements
+    const { continent, location, startDate, endDate } = form.elements
 
     onCreateTrip({
       id: uuidv4(),
-      city: city.value,
+      continent: continent.value,
+      location: location.value,
       startDate: startDate.value,
       endDate: endDate.value,
       sights: [],
