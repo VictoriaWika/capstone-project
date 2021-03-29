@@ -87,4 +87,10 @@ const Select = styled.select`
   font-family: inherit;
   padding: 5px;
   font-size: inherit;
+  outline: none;
+
+  &:focus {
+    border-color: rgba(116, 235, 213, 0.5);
+    box-shadow: 0 0 0 4px rgba(116, 235, 213, 0.1);
+  }
 `
