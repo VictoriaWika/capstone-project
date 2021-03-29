@@ -28,8 +28,8 @@ const Tab = styled.link`
   text-decoration: none;
   padding: 12px;
   padding-bottom: 8px;
-  border-bottom: 2px solid var(--color-darkgrey);
-  color: var(--color-darkgrey);
+  border-bottom: 2px solid var(--color-mediumgrey);
+  color: var(--color-mediumgrey);
 
   &.active {
     color: black;

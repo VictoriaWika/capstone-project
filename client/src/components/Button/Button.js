@@ -7,5 +7,9 @@ export default styled.button`
   border-radius: 8px;
   padding: 10px 20px;
   color: white;
-  background-image: linear-gradient(45deg, #acb6e5, #74ebd5);
+  background-image: linear-gradient(
+    45deg,
+    var(--color-blue),
+    var(--color-turquoise)
+  );
 `
