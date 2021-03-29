@@ -115,8 +115,8 @@ const AddButton = styled(Button)`
 `
 const DeleteButton = styled(Button)`
   display: inline;
-  color: #f80759;
-  border: 0.15em solid #f80759;
+  color: var(--color-pink);
+  border: 0.15em solid var(--color-pink);
   background: transparent;
   padding: 5px;
 `

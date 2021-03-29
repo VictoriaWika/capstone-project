@@ -67,9 +67,8 @@ const NavButton = styled.button`
   text-decoration: none;
   text-transform: uppercase;
   padding: 2rem 0;
-  color: #0d0c1d;
   transition: color 0.5s linear;
-  color: var(--color-darkgrey);
+  color: var(--color-mediumgrey);
 
   &.active {
     color: black;

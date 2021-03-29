@@ -6,7 +6,10 @@ export default createGlobalStyle`
 --color-overlay: rgba(74, 74, 74, 0.5);
 --color-white: #fff;
 --color-lightgrey: #ddd;
---color-darkgrey: #bbb;
+--color-mediumgrey: #bbb;
+--color-blue: #acb6e5;
+--color-turquoise: #74ebd5;
+--color-pink: #f80759;
 
 --color-text: #222;
 
