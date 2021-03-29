@@ -33,7 +33,7 @@ export default function Navigation({ open, setOpen }) {
       <NavButton
         as={NavLink}
         onClick={() => setOpen(!open)}
-        to="/createtrip"
+        to="/create-trip"
         aria-label="trip"
       >
         Trip

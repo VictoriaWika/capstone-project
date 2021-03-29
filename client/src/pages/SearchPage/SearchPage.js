@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
-import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
@@ -17,7 +16,6 @@ export default function SearchPage({
   return (
     <PageLayout>
       <ScrollToTop />
-      <Header />
       {open === true && <Overlay />}
       <Heading>Search the world</Heading>
       <Searchbar

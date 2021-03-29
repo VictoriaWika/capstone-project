@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
-import Header from '../../components/Header/Header'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import ScrollToTop from '../../services/ScrollToTop'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function CityPage({ onAddSight, sights, tripCards }) {
   const { location } = useParams()
@@ -17,7 +16,6 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
   return (
     <PageLayout>
       <ScrollToTop />
-      <Header />
       <GoBackButton />
       <Heading>Trip to: {location}</Heading>
       {sights

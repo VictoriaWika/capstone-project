@@ -15,7 +15,6 @@ export default function CreateForm({ onCreateTrip }) {
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
       <label>
         Continent
-        {console.log(all, selectedContinent)}
         <Select
           required
           value={userInput}

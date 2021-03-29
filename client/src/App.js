@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
+import Header from './components/Header/Header'
 import NavIcon from './components/NavIcon/NavIcon'
 import Navigation from './components/Navigation/Navigation'
 import TripNavigation from './components/TripNavigation/TripNavigation'
@@ -23,6 +24,7 @@ export default function App() {
 
   return (
     <>
+      <Header />
       <Switch>
         <Route exact path="/">
           <HomePage
@@ -49,7 +51,7 @@ export default function App() {
             sights={sights}
           />
         </Route>
-        <Route path="/createtrip">
+        <Route path="/create-trip">
           <CreatePage open={open} handleCreateTrip={createTrip} />
         </Route>
         <Route path="/trips">
@@ -73,13 +75,13 @@ export default function App() {
           )}
         />
       </Switch>
-      <Route exact path={['/', '/liked', '/search', '/createtrip', '/trips']}>
+      <Route exact path={['/', '/liked', '/search', '/create-trip', '/trips']}>
         <div ref={node}>
           <NavIcon open={open} setOpen={setOpen} />
           <Navigation open={open} setOpen={setOpen} />
         </div>
       </Route>
-      <Route exact path={['/createtrip', '/trips']}>
+      <Route exact path={['/create-trip', '/trips']}>
         <TripNavigation />
       </Route>
     </>

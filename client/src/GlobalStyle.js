@@ -2,7 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 :root {
---color-bg-light: rgba(250, 250, 250, 0.9);
 --color-overlay: rgba(74, 74, 74, 0.5);
 --color-white: #fff;
 --color-lightgrey: #ddd;
@@ -19,6 +18,7 @@ export default createGlobalStyle`
 --zindex-nav: 50;
 --zindex-navicon: 60;
 }
+
 * {
   box-sizing: border-box;
 }

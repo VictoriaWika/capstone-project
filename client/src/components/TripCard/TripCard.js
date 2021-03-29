@@ -48,13 +48,13 @@ export default function TripCard({
               sights.length === 1 ? 'sight' : 'sights'
             } to your trip`}
           <FlexContainer>
-            {sights.length !== 0
+            {sights.length
               ? sights.map(sight => (
                   <div key={uuidv4()}>
                     <Image
                       src={sight.image}
-                      width="200"
-                      height="200"
+                      width="250"
+                      height="250"
                       alt=""
                     ></Image>{' '}
                     {sight.name}

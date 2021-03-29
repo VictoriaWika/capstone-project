@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
 import Button from '../../components/Button/Button'
-import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import ScrollToTop from '../../services/ScrollToTop'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function HomePage({
   handleAddLike,
@@ -19,9 +18,7 @@ export default function HomePage({
   return (
     <PageLayout>
       <ScrollToTop />
-      <Header />
       {open === true && <Overlay />}
-      {console.log(randomSights)}
       <Heading>Discover the world</Heading>
       {randomSights.map(item => (
         <AttractionCard
@@ -61,4 +58,5 @@ const PageLayout = styled.div`
 `
 const Heading = styled.h2`
   margin-bottom: 0;
+  width: 335px;
 `

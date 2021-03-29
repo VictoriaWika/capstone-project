@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
-import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   const [userInput, setUserInput] = useState('')
@@ -19,7 +18,6 @@ export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   return (
     <PageLayout>
       <ScrollToTop />
-      <Header />
       {open === true && <Overlay />}
       <Heading>Your liked sights</Heading>
       <Searchbar
