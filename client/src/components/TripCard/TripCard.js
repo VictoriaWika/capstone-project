@@ -1,16 +1,17 @@
-import styled from 'styled-components/macro'
-import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components/macro'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
+import Button from '../Button/Button'
 
 export default function TripCard({
   city,
+  endDate,
   id,
+  onDeleteTrip,
   sights,
   startDate,
-  endDate,
-  onDeleteTrip,
 }) {
   const [isVisible, setIsVisible] = useState(false)
 
@@ -21,7 +22,7 @@ export default function TripCard({
         <span>{startDate}</span>
         <span>{endDate}</span>
       </DateWrapper>
-      <AddButton as={Link} to={`/${city}`}>
+      <AddButton as={Link} to={`/${city}`} aria-label="navigate-to-add-sights">
         <PlusSVG /> Add sights
       </AddButton>
       <ShowMoreButton
@@ -29,6 +30,7 @@ export default function TripCard({
           event.stopPropagation()
           setIsVisible(!isVisible)
         }}
+        aria-label="toggle-details"
       >
         {!isVisible ? 'Show more' : 'Show less'}
       </ShowMoreButton>
@@ -49,14 +51,27 @@ export default function TripCard({
                 ))
               : 'Add sights and they will be displayed here'}
           </FlexContainer>
-          <DeleteButton onClick={() => onDeleteTrip(id)}>✕</DeleteButton>
+          <DeleteButton onClick={() => onDeleteTrip(id)}>
+            Delete trip
+          </DeleteButton>
         </>
       )}
     </Card>
   )
 }
+
+TripCard.propTypes = {
+  city: PropTypes.string,
+  id: PropTypes.string,
+  sights: PropTypes.array,
+  startDate: PropTypes.string,
+  endDate: PropTypes.string,
+  onDeleteTrip: PropTypes.func,
+}
+
 const Card = styled.div`
-  background: var(--color-bg-light);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+  border-radius: 12px;
   padding: 20px;
   width: 335px;
   display: grid;
@@ -76,22 +91,20 @@ const DateWrapper = styled.div`
 `
 const ShowMoreButton = styled(Button)`
   margin: 0 auto;
+  background: transparent;
+  color: black;
   width: 150px;
 `
 const AddButton = styled(Button)`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 150px;
   text-decoration: none;
-  color: black;
-  padding: 10px;
-  border-radius: 0;
 `
 const DeleteButton = styled(Button)`
   display: inline;
-  color: red;
-  border: 0.15em solid red;
+  color: var(--color-pink);
+  border: 0.15em solid var(--color-pink);
   background: transparent;
   padding: 5px;
 `

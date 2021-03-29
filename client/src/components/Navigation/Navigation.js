@@ -1,44 +1,76 @@
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function Navigation() {
+export default function Navigation({ open, setOpen }) {
   return (
-    <Nav>
-      <NavButton as={NavLink} exact to="/">
+    <Nav open={open}>
+      <NavButton
+        as={NavLink}
+        onClick={() => setOpen(!open)}
+        exact
+        to="/"
+        aria-label="home"
+      >
         Home
       </NavButton>
-      <NavButton as={NavLink} to="/liked">
+      <NavButton
+        as={NavLink}
+        onClick={() => setOpen(!open)}
+        to="/liked"
+        aria-label="like"
+      >
         Like
       </NavButton>
-      <NavButton as={NavLink} to="/search">
+      <NavButton
+        as={NavLink}
+        onClick={() => setOpen(!open)}
+        to="/search"
+        aria-label="search"
+      >
         Search
       </NavButton>
-      <NavButton as={NavLink} to="/createtrip">
+      <NavButton
+        as={NavLink}
+        onClick={() => setOpen(!open)}
+        to="/createtrip"
+        aria-label="trip"
+      >
         Trip
       </NavButton>
     </Nav>
   )
 }
 
+Navigation.propTypes = {
+  open: PropTypes.bool.isRequired,
+}
+
 const Nav = styled.nav`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(250, 250, 250, 0.98);
+  height: 100vh;
+  text-align: left;
+  padding: 2rem;
   position: fixed;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 40px;
-  bottom: 0;
+  top: 0;
   left: 0;
-  background: var(--color-lightgrey);
-  width: 100%;
-  z-index: var(--zindex-fixed);
+  transition: transform 0.7s cubic-bezier(0.42, 0.97, 0.52, 1);
+  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  width: 180px;
+  z-index: var(--zindex-nav);
 `
 const NavButton = styled.button`
+  font-size: 20px;
   text-decoration: none;
-  border-bottom: 2px solid var(--color-darkgrey);
-  color: var(--color-darkgrey);
+  text-transform: uppercase;
+  padding: 2rem 0;
+  transition: color 0.5s linear;
+  color: var(--color-mediumgrey);
 
   &.active {
     color: black;
-    border-bottom: 2px solid black;
   }
 `

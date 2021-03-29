@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { ReactComponent as LikeSVG } from '../../icons/liked.svg'
 import { ReactComponent as UnlikeSVG } from '../../icons/unliked.svg'
@@ -6,10 +7,10 @@ const like = <LikeSVG />
 const unlike = <UnlikeSVG />
 
 export default function AttractionCard({
-  name,
   image,
-  onAddLike,
   likedPlaces,
+  name,
+  onAddLike,
 }) {
   return (
     <Card key={name}>
@@ -26,6 +27,13 @@ export default function AttractionCard({
   )
 }
 
+AttractionCard.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  onAddLike: PropTypes.func,
+  likedPlaces: PropTypes.array,
+}
+
 const Card = styled.div`
   position: relative;
 `
@@ -35,13 +43,13 @@ const AttractionName = styled.div`
   width: 100%;
   bottom: 4px;
   left: 0;
-  border-bottom-left-radius: 24px;
-  border-bottom-right-radius: 24px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
   background: var(--color-bg-light);
   padding: 10px;
 `
 const Image = styled.img`
-  border-radius: 24px;
+  border-radius: 12px;
   height: auto;
 `
 const LikeButton = styled.span`
