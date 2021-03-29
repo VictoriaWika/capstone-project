@@ -4,29 +4,25 @@ import { v4 as uuidv4 } from 'uuid'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
 import LocationPerContinent from '../../LocationPerContinent.json'
+import { useState } from 'react'
 
-export default function CreateForm({ onCreateTrip, sights }) {
-  const allSightsContinents = sights.map(({ continent }) => continent)
-  const continents = [...new Set(allSightsContinents)]
-  const allSightsLocations = sights.map(({ location }) => location)
-  const locations = [...new Set(allSightsLocations)]
-  const all = LocationPerContinent //.flatMap(item => item.continent)
-  const africa = LocationPerContinent[0]
-  // const asia = LocationPerContinent[1]
-  // const europa = LocationPerContinent[2]
-  // const northAmerica = LocationPerContinent[3]
-  // const oceania = LocationPerContinent[4]
-  // const southAmerica = LocationPerContinent[5]
+export default function CreateForm({ onCreateTrip }) {
+  const all = LocationPerContinent
+  const [userInput, setUserInput] = useState('Africa')
+  const selectedContinent = all.find(({ continent }) => continent === userInput)
 
-  // const indeOfLocal = LocationPerContinent.map(
-  //   item => item.continent
-  // ).findIndex(trip => trip.continent === continent)
-  const cities = LocationPerContinent.map(item => item.locations)
   return (
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
       <label>
         Continent
-        <Select required name="continent" data-testid="select">
+        {console.log(all, selectedContinent)}
+        <Select
+          required
+          value={userInput}
+          onChange={event => setUserInput(event.target.value)}
+          name="continent"
+          data-testid="select"
+        >
           {all.map(({ continent }) => (
             <option key={uuidv4()} name={continent} data-testid={continent}>
               {continent}
@@ -37,11 +33,9 @@ export default function CreateForm({ onCreateTrip, sights }) {
       <label>
         Location
         <Select required name="location">
-          {console.log(africa, cities, all)}
-          {africa.continent === 'Africa' &&
-            africa.locations.map(city => (
-              <option key={uuidv4()}>{city}</option>
-            ))}
+          {selectedContinent.locations.map(city => (
+            <option key={uuidv4()}>{city}</option>
+          ))}
         </Select>
       </label>
       <label>

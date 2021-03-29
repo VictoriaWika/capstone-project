@@ -6,6 +6,7 @@ import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   const [userInput, setUserInput] = useState('')
@@ -29,7 +30,7 @@ export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
       {likedPlaces.length === 0 && <p>You haven't liked anything yet!</p>}
       {filteredPlaces.map(filteredSights => (
         <AttractionCard
-          key={filteredSights.name}
+          key={uuidv4()}
           name={filteredSights.name}
           image={filteredSights.image}
           onAddLike={handleAddLike}

@@ -30,6 +30,7 @@ export default function App() {
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
             onSightRandomizer={sightRandomizer}
+            sights={sights}
           />
         </Route>
         <Route path="/liked">
@@ -49,11 +50,7 @@ export default function App() {
           />
         </Route>
         <Route path="/createtrip">
-          <CreatePage
-            open={open}
-            handleCreateTrip={createTrip}
-            sights={sights}
-          />
+          <CreatePage open={open} handleCreateTrip={createTrip} />
         </Route>
         <Route path="/trips">
           <TripPage

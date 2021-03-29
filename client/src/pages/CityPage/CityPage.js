@@ -7,6 +7,7 @@ import Header from '../../components/Header/Header'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import ScrollToTop from '../../services/ScrollToTop'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function CityPage({ onAddSight, sights, tripCards }) {
   const { location } = useParams()
@@ -22,7 +23,7 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
       {sights
         .filter(sight => sight.location === location)
         .map(sight => (
-          <SightWrapper key={sight.image}>
+          <SightWrapper key={uuidv4()}>
             <AddButton
               onClick={() => {
                 onAddSight(sight, location)
