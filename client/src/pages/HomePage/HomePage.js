@@ -20,7 +20,6 @@ export default function HomePage({
       <ScrollToTop />
       {open === true && <Overlay />}
       <Heading>Discover the world</Heading>
-      {console.log(randomSights)}
       {randomSights.map(item => (
         <AttractionCard
           key={uuidv4()}
