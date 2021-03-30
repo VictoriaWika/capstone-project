@@ -41,11 +41,11 @@ export default function CreateForm({ onCreateTrip }) {
       </label>
       <label>
         Start date
-        <Input required name="startDate" type="date" />
+        <Input required name="startDate" type="date" placeholder="YYYY-MM-DD" />
       </label>
       <label>
         End date
-        <Input required name="endDate" type="date" />
+        <Input required name="endDate" type="date" placeholder="YYYY-MM-DD" />
       </label>
       <Button aria-label="submit-form">Create Trip</Button>
     </Form>
