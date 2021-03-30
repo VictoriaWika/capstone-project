@@ -59,7 +59,7 @@ const SightWrapper = styled.div`
   gap: 16px;
 `
 const AddButton = styled(Button)`
-  padding: 7px 12.5px;
+  padding: 10px 12px 6px;
   position: absolute;
   bottom: 22px;
   right: 16px;

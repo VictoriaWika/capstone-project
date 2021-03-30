@@ -5,6 +5,8 @@ import styled from 'styled-components/macro'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import Button from '../Button/Button'
 import { v4 as uuidv4 } from 'uuid'
+import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
+import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
 
 export default function TripCard({
   continent,
@@ -40,6 +42,7 @@ export default function TripCard({
         aria-label="toggle-details"
       >
         {!isVisible ? 'Show more' : 'Show less'}
+        {!isVisible ? <ArrowDown /> : <ArrowUp />}
       </ShowMoreButton>
       {isVisible && (
         <>
@@ -103,13 +106,16 @@ const DateWrapper = styled.div`
 `
 const ShowMoreButton = styled(Button)`
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
   background: transparent;
   color: black;
-  width: 150px;
+  width: 160px;
 `
 const AddButton = styled(Button)`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px 90px;
   align-items: center;
   text-decoration: none;
 `
