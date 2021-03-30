@@ -107,6 +107,13 @@ const DateWrapper = styled.div`
   justify-content: space-between;
   text-align: center;
 `
+const AddButton = styled(Button)`
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 90px;
+  align-items: center;
+  text-decoration: none;
+`
 const ShowMoreButton = styled(Button)`
   margin: 0 auto;
   display: flex;
@@ -114,13 +121,6 @@ const ShowMoreButton = styled(Button)`
   background: transparent;
   color: black;
   width: 160px;
-`
-const AddButton = styled(Button)`
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 90px;
-  align-items: center;
-  text-decoration: none;
 `
 const DeleteButton = styled(Button)`
   display: inline;
