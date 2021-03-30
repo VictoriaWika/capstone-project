@@ -8,8 +8,10 @@ import { useState } from 'react'
 
 export default function CreateForm({ onCreateTrip }) {
   const all = LocationPerContinent
-  const [userInput, setUserInput] = useState('Africa')
-  const selectedContinent = all.find(({ continent }) => continent === userInput)
+  const [continentInput, setContinentInput] = useState('Africa')
+  const selectedContinent = all.find(
+    ({ continent }) => continent === continentInput
+  )
 
   return (
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
@@ -17,8 +19,8 @@ export default function CreateForm({ onCreateTrip }) {
         Continent
         <Select
           required
-          value={userInput}
-          onChange={event => setUserInput(event.target.value)}
+          value={continentInput}
+          onChange={event => setContinentInput(event.target.value)}
           name="continent"
           data-testid="select"
         >

@@ -13,6 +13,9 @@ export default function SearchPage({
   sights,
 }) {
   const [userInput, setUserInput] = useState('')
+  const filteredSights = sights.filter(sight =>
+    sight.name.toLowerCase().includes(userInput.toLowerCase().trim())
+  )
   return (
     <PageLayout>
       <ScrollToTop />
@@ -23,19 +26,15 @@ export default function SearchPage({
         setUserInput={setUserInput}
         text={'Wanderlust?'}
       />
-      {sights
-        .filter(sight =>
-          sight.name.toLowerCase().includes(userInput.toLowerCase().trim())
-        )
-        .map(({ name, _id, image }) => (
-          <AttractionCard
-            key={_id}
-            name={name}
-            image={image}
-            onAddLike={handleAddLike}
-            likedPlaces={likedPlaces}
-          />
-        ))}
+      {filteredSights.map(({ name, _id, image }) => (
+        <AttractionCard
+          key={_id}
+          name={name}
+          image={image}
+          onAddLike={handleAddLike}
+          likedPlaces={likedPlaces}
+        />
+      ))}
     </PageLayout>
   )
 }

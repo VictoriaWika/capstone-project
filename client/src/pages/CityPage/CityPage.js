@@ -12,30 +12,29 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
   const { location } = useParams()
   const currentTripCard = tripCards.find(trip => trip.location === location)
   const currentSights = currentTripCard.sights.map(item => item.name)
+  const filteredLocation = sights.filter(sight => sight.location === location)
 
   return (
     <PageLayout>
       <ScrollToTop />
       <GoBackButton />
       <Heading>Trip to: {location}</Heading>
-      {sights
-        .filter(sight => sight.location === location)
-        .map(sight => (
-          <SightWrapper key={uuidv4()}>
-            <AddButton
-              onClick={() => {
-                onAddSight(sight, location)
-              }}
-              aria-label="toggle-add-sight"
-            >
-              {currentSights.includes(sight.name) ? <CheckSVG /> : <PlusSVG />}
-            </AddButton>
-            <div>
-              <AttractionName>{sight.name}</AttractionName>
-              <Image src={sight.image} width="335" height="335" alt="" />
-            </div>
-          </SightWrapper>
-        ))}
+      {filteredLocation.map(sight => (
+        <SightWrapper key={uuidv4()}>
+          <AddButton
+            onClick={() => {
+              onAddSight(sight, location)
+            }}
+            aria-label="toggle-add-sight"
+          >
+            {currentSights.includes(sight.name) ? <CheckSVG /> : <PlusSVG />}
+          </AddButton>
+          <div>
+            <AttractionName>{sight.name}</AttractionName>
+            <Image src={sight.image} width="335" height="335" alt="" />
+          </div>
+        </SightWrapper>
+      ))}
     </PageLayout>
   )
 }
