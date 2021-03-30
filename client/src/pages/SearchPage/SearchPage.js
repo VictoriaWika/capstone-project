@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
+import ContinentFilter from '../../components/ContinentFilter/ContinentFilter'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
@@ -13,9 +14,17 @@ export default function SearchPage({
   sights,
 }) {
   const [userInput, setUserInput] = useState('')
-  const filteredSights = sights.filter(sight =>
-    sight.name.toLowerCase().includes(userInput.toLowerCase().trim())
+  const [filteredContinents, setFilteredContinents] = useState('All continents')
+  const filteredSights = sights.filter(
+    sight =>
+      (sight.name.toLowerCase().includes(userInput.toLowerCase().trim()) ||
+        sight.location
+          .toLowerCase()
+          .includes(userInput.toLowerCase().trim())) &&
+      (filteredContinents === 'All continents' ||
+        sight.continent === filteredContinents)
   )
+
   return (
     <PageLayout>
       <ScrollToTop />
@@ -26,6 +35,11 @@ export default function SearchPage({
         setUserInput={setUserInput}
         text={'Wanderlust?'}
       />
+      <ContinentFilter
+        filteredContinents={filteredContinents}
+        setFilteredContinents={setFilteredContinents}
+      />
+
       {filteredSights.map(({ name, _id, image }) => (
         <AttractionCard
           key={_id}

@@ -17,7 +17,7 @@ NavIcon.propTypes = {
 }
 const StyledNavIcon = styled.button`
   position: fixed;
-  top: 7.5px;
+  top: 5.5px;
   left: 10px;
   display: flex;
   flex-direction: column;

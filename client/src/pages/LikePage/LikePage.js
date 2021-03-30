@@ -9,11 +9,12 @@ import ScrollToTop from '../../services/ScrollToTop'
 
 export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   const [userInput, setUserInput] = useState('')
-  const filteredPlaces = sights
-    .filter(sight => likedPlaces.includes(sight.name))
-    .filter(sight =>
-      sight.name.toLowerCase().includes(userInput.toLowerCase().trim())
-    )
+  const filteredPlaces = sights.filter(
+    sight =>
+      likedPlaces.includes(sight.name) &&
+      (sight.name.toLowerCase().includes(userInput.toLowerCase().trim()) ||
+        sight.location.toLowerCase().includes(userInput.toLowerCase().trim()))
+  )
 
   return (
     <PageLayout>
