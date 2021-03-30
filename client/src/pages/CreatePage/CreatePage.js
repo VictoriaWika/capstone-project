@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import CreateForm from '../../components/CreateForm/CreateForm'
-import Header from '../../components/Header/Header'
 import Overlay from '../../components/Overlay/Overlay'
 import ScrollToTop from '../../services/ScrollToTop'
 
@@ -9,7 +8,6 @@ export default function CreatePage({ handleCreateTrip, open }) {
   return (
     <>
       <ScrollToTop />
-      <Header />
       {open === true && <Overlay />}
       <Heading>Trips</Heading>
       <CreateForm onCreateTrip={handleCreateTrip} />

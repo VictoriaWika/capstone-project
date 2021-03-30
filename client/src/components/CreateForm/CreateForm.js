@@ -1,20 +1,41 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
-import { cities } from '../../capstone.json'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
+import LocationPerContinent from '../../LocationPerContinent.json'
+import { useState } from 'react'
 
 export default function CreateForm({ onCreateTrip }) {
+  const all = LocationPerContinent
+  const [continentInput, setContinentInput] = useState('Africa')
+  const selectedContinent = all.find(
+    ({ continent }) => continent === continentInput
+  )
+
   return (
     <Form onSubmit={handleSubmit} data-testid="form" aria-label="submit-form">
       <label>
-        City
-        <Select required name="city" data-testid="select">
-          {cities.map(({ name, id }) => (
-            <option key={id} data-testid={name}>
-              {name}
+        Continent
+        <Select
+          required
+          value={continentInput}
+          onChange={event => setContinentInput(event.target.value)}
+          name="continent"
+          data-testid="select"
+        >
+          {all.map(({ continent }) => (
+            <option key={uuidv4()} name={continent} data-testid={continent}>
+              {continent}
             </option>
+          ))}
+        </Select>
+      </label>
+      <label>
+        Location
+        <Select required name="location">
+          {selectedContinent.locations.map(city => (
+            <option key={uuidv4()}>{city}</option>
           ))}
         </Select>
       </label>
@@ -29,14 +50,16 @@ export default function CreateForm({ onCreateTrip }) {
       <Button>Create Trip</Button>
     </Form>
   )
+
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const { city, startDate, endDate } = form.elements
+    const { continent, location, startDate, endDate } = form.elements
 
     onCreateTrip({
       id: uuidv4(),
-      city: city.value,
+      continent: continent.value,
+      location: location.value,
       startDate: startDate.value,
       endDate: endDate.value,
       sights: [],
@@ -66,4 +89,10 @@ const Select = styled.select`
   font-family: inherit;
   padding: 5px;
   font-size: inherit;
+  outline: none;
+
+  &:focus {
+    border-color: rgba(116, 235, 213, 0.5);
+    box-shadow: 0 0 0 4px rgba(116, 235, 213, 0.1);
+  }
 `

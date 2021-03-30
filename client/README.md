@@ -3,7 +3,7 @@
 <img src="./src/icons/travelers.svg" align="right" width="150">
 Discover new places and plan your next big adventure with Travelr!
 
-Get random suggestions for sights, give them a like and plan ahead!
+Get random suggestions for sights, give them a like and search the world!
 
 Add your favorite sights to your travel plan, so you can show them to your friends later on!
 

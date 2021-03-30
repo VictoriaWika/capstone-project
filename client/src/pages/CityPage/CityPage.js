@@ -1,29 +1,29 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
-import Header from '../../components/Header/Header'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import ScrollToTop from '../../services/ScrollToTop'
 
-export default function CityPage({ allSights, onAddSight, tripCards }) {
-  const { city } = useParams()
-  const currentTripCard = tripCards.find(trip => trip.city === city)
+export default function CityPage({ onAddSight, sights, tripCards }) {
+  const { location } = useParams()
+  const currentTripCard = tripCards.find(trip => trip.location === location)
   const currentSights = currentTripCard.sights.map(item => item.name)
+  const filteredLocation = sights.filter(sight => sight.location === location)
 
   return (
     <PageLayout>
       <ScrollToTop />
-      <Header />
       <GoBackButton />
-      <Heading>Trip to: {city}</Heading>
-      {allSights.map(sight => (
-        <SightWrapper key={sight.image}>
+      <Heading>Trip to: {location}</Heading>
+      {filteredLocation.map(sight => (
+        <SightWrapper key={uuidv4()}>
           <AddButton
             onClick={() => {
-              onAddSight(sight, city)
+              onAddSight(sight, location)
             }}
             aria-label="toggle-add-sight"
           >
@@ -40,7 +40,7 @@ export default function CityPage({ allSights, onAddSight, tripCards }) {
 }
 
 CityPage.propTypes = {
-  allSights: PropTypes.array,
+  sights: PropTypes.array,
   onAddSight: PropTypes.func,
   tripCards: PropTypes.array,
 }
@@ -61,22 +61,19 @@ const SightWrapper = styled.div`
 const AddButton = styled(Button)`
   padding: 7px 12.5px;
   position: absolute;
-  bottom: 16px;
+  bottom: 22px;
   right: 16px;
   z-index: var(--zindex-absolute);
 `
 const AttractionName = styled.div`
   position: absolute;
-  text-align: center;
-  width: 100%;
-  bottom: 4px;
-  left: 0;
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
-  background: var(--color-bg-light);
-  padding: 10px;
+  bottom: 16px;
+  left: 16px;
+  width: 80%;
+  color: var(--color-white);
 `
 const Image = styled.img`
   border-radius: 12px;
   height: auto;
+  box-shadow: inset 0 -60px 60px -60px #333;
 `
