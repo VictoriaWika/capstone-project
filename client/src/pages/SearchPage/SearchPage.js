@@ -39,7 +39,6 @@ export default function SearchPage({
         filteredContinents={filteredContinents}
         setFilteredContinents={setFilteredContinents}
       />
-
       {filteredSights.map(({ name, _id, image }) => (
         <AttractionCard
           key={_id}
