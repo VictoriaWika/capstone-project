@@ -5,8 +5,10 @@ import Button from '../Button/Button'
 import Input from '../Input/Input'
 import LocationPerContinent from '../../LocationPerContinent.json'
 import { useState } from 'react'
+import { useHistory } from 'react-router'
 
 export default function CreateForm({ onCreateTrip }) {
+  const { push } = useHistory()
   const all = LocationPerContinent
   const [continentInput, setContinentInput] = useState('Africa')
   const selectedContinent = all.find(
@@ -65,6 +67,7 @@ export default function CreateForm({ onCreateTrip }) {
       sights: [],
     })
     form.reset()
+    push('/trips')
   }
 }
 
