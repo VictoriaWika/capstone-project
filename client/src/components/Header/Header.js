@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <AppHeader>
       <h1>
-        <img src={logo} alt="" width="100" height="100" />
+        <img src={logo} alt="Logo" width="100" height="100" />
       </h1>
     </AppHeader>
   )

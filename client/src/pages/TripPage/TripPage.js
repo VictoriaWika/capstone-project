@@ -15,7 +15,7 @@ export default function TripPage({
       <ScrollToTop />
       {open === true && <Overlay />}
       <Heading>Trips</Heading>
-      <>
+      <main>
         {tripCards.length === 0 ? (
           <p>You have no planned Trips yet!</p>
         ) : (
@@ -37,7 +37,7 @@ export default function TripPage({
             onDeleteTrip={handleDeleteTrip}
           />
         ))}
-      </>
+      </main>
     </PageLayout>
   )
 }
@@ -53,6 +53,10 @@ const PageLayout = styled.div`
   gap: 20px;
   justify-content: center;
   margin-top: 100px;
+
+  main {
+    margin-top: 40px;
+  }
 `
 const Heading = styled.h2`
   position: fixed;

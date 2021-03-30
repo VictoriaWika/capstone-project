@@ -91,7 +91,10 @@ export default function ContinentFilter({
       </ButtonWrapper>
       <SelectedContinent>{filteredContinents}</SelectedContinent>
       {filteredContinents !== 'All continents' && (
-        <Button onClick={() => setFilteredContinents('All continents')}>
+        <Button
+          onClick={() => setFilteredContinents('All continents')}
+          aria-label="reset-filter"
+        >
           Show all continents
         </Button>
       )}

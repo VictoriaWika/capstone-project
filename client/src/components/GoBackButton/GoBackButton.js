@@ -7,7 +7,7 @@ export default function GoBackButton() {
   const history = useHistory()
 
   return (
-    <BackButton onClick={handleClick}>
+    <BackButton onClick={handleClick} aria-label="go-back">
       <ArrowLeft />
     </BackButton>
   )

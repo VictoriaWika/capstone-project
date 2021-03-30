@@ -65,7 +65,10 @@ export default function TripCard({
                 ))
               : 'Add sights and they will be displayed here'}
           </FlexContainer>
-          <DeleteButton onClick={() => onDeleteTrip(id)}>
+          <DeleteButton
+            onClick={() => onDeleteTrip(id)}
+            aria-label="delete-trip"
+          >
             Delete trip
           </DeleteButton>
         </>
