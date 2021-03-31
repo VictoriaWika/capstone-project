@@ -57,8 +57,8 @@ export default function App() {
           <TripPage
             handleDeleteTrip={deleteTrip}
             open={open}
-            tripCards={tripCards}
             setTripCards={setTripCards}
+            tripCards={tripCards}
           />
         </Route>
         <Route
@@ -66,10 +66,7 @@ export default function App() {
           render={props => (
             <CityPage
               {...props}
-              handleAddLike={addLike}
-              likedPlaces={likedPlaces}
               onAddSight={addSight}
-              open={open}
               sights={sights}
               tripCards={tripCards}
             />
@@ -95,7 +92,7 @@ export default function App() {
 
     let newSights
     if (currentSights.includes(sight)) {
-      newSights = currentSights.filter(item => item.name !== sight.name)
+      newSights = currentSights.filter(current => current.name !== sight.name)
     } else {
       newSights = [...currentSights, sight]
     }

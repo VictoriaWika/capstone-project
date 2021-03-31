@@ -6,7 +6,7 @@ import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
 import ScrollToTop from '../../services/ScrollToTop'
 
-export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
+export default function LikePage({ handleAddLike, likedPlaces, open, sights }) {
   const [userInput, setUserInput] = useState('')
   const filteredPlaces = sights.filter(
     sight =>

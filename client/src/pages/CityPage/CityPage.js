@@ -11,7 +11,7 @@ import ScrollToTop from '../../services/ScrollToTop'
 export default function CityPage({ onAddSight, sights, tripCards }) {
   const { location } = useParams()
   const currentTripCard = tripCards.find(trip => trip.location === location)
-  const currentSights = currentTripCard.sights.map(item => item.name)
+  const currentSights = currentTripCard.sights.map(sight => sight.name)
   const filteredLocation = sights.filter(sight => sight.location === location)
 
   return (

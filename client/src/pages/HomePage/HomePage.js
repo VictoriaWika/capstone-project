@@ -18,18 +18,18 @@ export default function HomePage({ handleAddLike, likedPlaces, open, sights }) {
       <ScrollToTop />
       {open && <Overlay />}
       <Heading>Discover the world</Heading>
-      {randomSights.map(item => (
+      {randomSights.map(sight => (
         <AttractionCard
-          key={item._id}
-          name={item.name}
-          image={item.image}
-          location={item.location}
-          continent={item.continent}
-          description={item.description}
+          key={sight._id}
+          name={sight.name}
+          image={sight.image}
+          location={sight.location}
+          continent={sight.continent}
+          description={sight.description}
           onAddLike={handleAddLike}
           likedPlaces={likedPlaces}
         >
-          {item.name}
+          {sight.name}
         </AttractionCard>
       ))}
       <Button
