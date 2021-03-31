@@ -27,7 +27,7 @@ export default function CreateForm({ onCreateTrip }) {
           data-testid="select"
         >
           {all.map(({ continent }) => (
-            <option key={uuidv4()} name={continent} data-testid={continent}>
+            <option key={continent.id} name={continent} data-testid={continent}>
               {continent}
             </option>
           ))}
@@ -37,7 +37,7 @@ export default function CreateForm({ onCreateTrip }) {
         Location
         <Select required name="location">
           {selectedContinent.locations.map(city => (
-            <option key={uuidv4()}>{city}</option>
+            <option key={city}>{city}</option>
           ))}
         </Select>
       </label>

@@ -13,7 +13,7 @@ export default function TripPage({
   return (
     <PageLayout>
       <ScrollToTop />
-      {open === true && <Overlay />}
+      {open && <Overlay />}
       <Heading>Trips</Heading>
       <main>
         {tripCards.length === 0 ? (

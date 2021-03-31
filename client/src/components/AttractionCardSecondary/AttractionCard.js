@@ -3,42 +3,28 @@ import { useState } from 'react'
 import styled from 'styled-components/macro'
 import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
 import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
-import { ReactComponent as LikeSVG } from '../../icons/liked.svg'
-import { ReactComponent as UnlikeSVG } from '../../icons/unliked.svg'
 import Button from '../Button/Button'
-
-const like = <LikeSVG />
-const unlike = <UnlikeSVG />
 
 export default function AttractionCard({
   continent,
   description,
   image,
-  likedPlaces,
   location,
   name,
-  onAddLike,
 }) {
   const [isVisible, setIsVisible] = useState(false)
   const region = location + ', ' + continent
   return (
     <Card key={name}>
-      <LikeButton
-        role="button"
-        aria-label="toggle-like"
-        onClick={() => onAddLike(name)}
-      >
-        {likedPlaces.includes(name) ? like : unlike}
-      </LikeButton>
       <Image src={image} width="335" height="335" alt="" />
       <AttractionInfo>
         <h2>
-          {!isVisible ? name.slice(0, 27) : name}
-          {!isVisible && name.length > 27 && '...'}
+          {!isVisible ? name.slice(0, 24) : name}
+          {!isVisible && name.length > 24 && '...'}
         </h2>
         <span>
-          {!isVisible ? region.slice(0, 27) : region}
-          {!isVisible && region.length > 27 && '...'}
+          {!isVisible ? region.slice(0, 34) : region}
+          {!isVisible && region.length > 34 && '...'}
         </span>
         <ShowMoreButton
           onClick={event => {
@@ -74,7 +60,6 @@ const AttractionInfo = styled.div`
   box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
   border-radius: 12px;
   position: relative;
-  z-index: var(--zindex-absolute);
 
   h2 {
     font-size: 18px;
@@ -101,10 +86,4 @@ const Image = styled.img`
   border-radius: 12px;
   height: auto;
   z-index: 0;
-`
-const LikeButton = styled.span`
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: var(--zindex-absolute);
 `

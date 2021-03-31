@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import { v4 as uuidv4 } from 'uuid'
 import AttractionCard from '../../components/AttractionCard/AttractionCard'
 import Overlay from '../../components/Overlay/Overlay'
 import Searchbar from '../../components/Searchbar/Searchbar'
@@ -19,7 +18,7 @@ export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
   return (
     <PageLayout>
       <ScrollToTop />
-      {open === true && <Overlay />}
+      {open && <Overlay />}
       <Heading>Your liked sights</Heading>
       <Searchbar
         userInput={userInput}
@@ -29,9 +28,12 @@ export default function LikePage({ sights, handleAddLike, likedPlaces, open }) {
       {likedPlaces.length === 0 && <p>You haven't liked anything yet!</p>}
       {filteredPlaces.map(filteredSights => (
         <AttractionCard
-          key={uuidv4()}
+          key={filteredSights._id}
           name={filteredSights.name}
           image={filteredSights.image}
+          location={filteredSights.location}
+          continent={filteredSights.continent}
+          description={filteredSights.description}
           onAddLike={handleAddLike}
           likedPlaces={likedPlaces}
         />

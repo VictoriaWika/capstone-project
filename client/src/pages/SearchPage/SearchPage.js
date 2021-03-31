@@ -28,7 +28,7 @@ export default function SearchPage({
   return (
     <PageLayout>
       <ScrollToTop />
-      {open === true && <Overlay />}
+      {open && <Overlay />}
       <Heading>Search the world</Heading>
       <Searchbar
         userInput={userInput}
@@ -39,15 +39,22 @@ export default function SearchPage({
         filteredContinents={filteredContinents}
         setFilteredContinents={setFilteredContinents}
       />
-      {filteredSights.map(({ name, _id, image }) => (
-        <AttractionCard
-          key={_id}
-          name={name}
-          image={image}
-          onAddLike={handleAddLike}
-          likedPlaces={likedPlaces}
-        />
-      ))}
+      <div>
+        {filteredSights.map(
+          ({ name, _id, image, location, continent, description }) => (
+            <AttractionCard
+              key={_id}
+              name={name}
+              image={image}
+              location={location}
+              continent={continent}
+              description={description}
+              onAddLike={handleAddLike}
+              likedPlaces={likedPlaces}
+            />
+          )
+        )}
+      </div>
     </PageLayout>
   )
 }
@@ -60,9 +67,14 @@ SearchPage.propTypes = {
 
 const PageLayout = styled.div`
   display: grid;
+  gap: 16px;
   justify-content: center;
   margin-top: 20px;
-  gap: 16px;
+
+  > div {
+    display: grid;
+    gap: 16px;
+  }
 `
 const Heading = styled.h2`
   margin-bottom: 0;

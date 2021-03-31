@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import Button from '../Button/Button'
-import { v4 as uuidv4 } from 'uuid'
 import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
 import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
 
@@ -53,7 +52,7 @@ export default function TripCard({
           <FlexContainer>
             {sights.length
               ? sights.map(sight => (
-                  <div key={uuidv4()}>
+                  <div key={sight._id}>
                     <Image
                       src={sight.image}
                       width="250"

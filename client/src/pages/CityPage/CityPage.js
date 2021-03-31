@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { v4 as uuidv4 } from 'uuid'
+import AttractionCard from '../../components/AttractionCardSecondary/AttractionCard.js'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
 import { ReactComponent as CheckSVG } from '../../icons/check.svg'
@@ -20,7 +20,7 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
       <GoBackButton />
       <Heading>Trip to: {location}</Heading>
       {filteredLocation.map(sight => (
-        <SightWrapper key={uuidv4()}>
+        <div key={sight._id}>
           <AddButton
             onClick={() => {
               onAddSight(sight, location)
@@ -29,11 +29,16 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
           >
             {currentSights.includes(sight.name) ? <CheckSVG /> : <PlusSVG />}
           </AddButton>
-          <div>
-            <AttractionName>{sight.name}</AttractionName>
-            <Image src={sight.image} width="335" height="335" alt="" />
-          </div>
-        </SightWrapper>
+          <CardWrapper>
+            <AttractionCard
+              name={sight.name}
+              image={sight.image}
+              location={location}
+              continent={sight.continent}
+              description={sight.description}
+            ></AttractionCard>
+          </CardWrapper>
+        </div>
       ))}
     </PageLayout>
   )
@@ -53,27 +58,13 @@ const PageLayout = styled.div`
 const Heading = styled.h2`
   margin: 40px 0 0;
 `
-const SightWrapper = styled.div`
-  position: relative;
-  display: grid;
-  gap: 16px;
-`
 const AddButton = styled(Button)`
+  position: relative;
+  top: 195px;
+  left: 260px;
   padding: 10px 12px 6px;
-  position: absolute;
-  bottom: 22px;
-  right: 16px;
   z-index: var(--zindex-absolute);
 `
-const AttractionName = styled.div`
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  width: 80%;
-  color: var(--color-white);
-`
-const Image = styled.img`
-  border-radius: 12px;
-  height: auto;
-  box-shadow: inset 0 -60px 60px -60px #333;
+const CardWrapper = styled.div`
+  margin-top: -42px;
 `
