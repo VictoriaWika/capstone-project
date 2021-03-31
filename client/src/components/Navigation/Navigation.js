@@ -49,11 +49,10 @@ Navigation.propTypes = {
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: rgba(250, 250, 250, 0.98);
   height: 100vh;
   text-align: left;
-  padding: 2rem;
+  padding: 4rem 2rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -66,7 +65,7 @@ const NavButton = styled.button`
   font-size: 20px;
   text-decoration: none;
   text-transform: uppercase;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   transition: color 0.5s linear;
   color: var(--color-mediumgrey);
 

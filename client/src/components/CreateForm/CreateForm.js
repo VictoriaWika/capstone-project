@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
-import { v4 as uuidv4 } from 'uuid'
-import Button from '../Button/Button'
-import Input from '../Input/Input'
-import LocationPerContinent from '../../LocationPerContinent.json'
 import { useState } from 'react'
 import { useHistory } from 'react-router'
+import styled from 'styled-components/macro'
+import { v4 as uuidv4 } from 'uuid'
+import LocationPerContinent from '../../LocationPerContinent.json'
+import Button from '../Button/Button'
+import Input from '../Input/Input'
 
 export default function CreateForm({ onCreateTrip }) {
   const { push } = useHistory()
@@ -43,11 +43,11 @@ export default function CreateForm({ onCreateTrip }) {
       </label>
       <label>
         Start date
-        <Input required name="startDate" type="date" placeholder="YYYY-MM-DD" />
+        <Input required name="startDate" type="date" value="YYYY-MM-DD" />
       </label>
       <label>
         End date
-        <Input required name="endDate" type="date" placeholder="YYYY-MM-DD" />
+        <Input required name="endDate" type="date" value="YYYY-MM-DD" />
       </label>
       <Button aria-label="submit-form">Create Trip</Button>
     </Form>

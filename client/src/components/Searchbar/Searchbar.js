@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import Input from '../Input/Input'
 import { ReactComponent as SearchSVG } from '../../icons/search.svg'
+import Input from '../Input/Input'
 
 export default function Searchbar({ userInput, setUserInput, text }) {
   return (

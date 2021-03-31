@@ -1,7 +1,7 @@
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
-import Button from '../Button/Button'
 import { ReactComponent as ArrowLeft } from '../../icons/arrow-left.svg'
+import Button from '../Button/Button'
 
 export default function GoBackButton() {
   const history = useHistory()
