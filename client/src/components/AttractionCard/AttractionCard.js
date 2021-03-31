@@ -33,8 +33,8 @@ export default function AttractionCard({
       <Image src={image} width="335" height="335" alt="" />
       <AttractionInfo>
         <h2>
-          {!isVisible ? name.slice(0, 27) : name}
-          {!isVisible && name.length > 27 && '...'}
+          {!isVisible ? name.slice(0, 26) : name}
+          {!isVisible && name.length > 26 && '...'}
         </h2>
         <span>
           {!isVisible ? region.slice(0, 27) : region}
@@ -67,7 +67,7 @@ const Card = styled.div`
   position: relative;
 `
 const AttractionInfo = styled.div`
-  padding: 10px 16px;
+  padding: 16px;
   width: 90%;
   margin: -40px auto 0;
   background: var(--color-white);

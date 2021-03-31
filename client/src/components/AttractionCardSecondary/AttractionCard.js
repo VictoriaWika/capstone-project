@@ -53,7 +53,7 @@ const Card = styled.div`
   position: relative;
 `
 const AttractionInfo = styled.div`
-  padding: 10px 16px;
+  padding: 16px;
   width: 90%;
   margin: -40px auto 0;
   background: var(--color-white);
