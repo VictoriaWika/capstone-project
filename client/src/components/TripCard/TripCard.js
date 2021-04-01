@@ -130,8 +130,11 @@ const DeleteButton = styled(Button)`
 `
 const FlexContainer = styled.div`
   display: flex;
-  gap: 10px;
   overflow: scroll;
+
+  > div {
+    margin-right: 10px;
+  }
 `
 const Image = styled.img`
   height: auto;
