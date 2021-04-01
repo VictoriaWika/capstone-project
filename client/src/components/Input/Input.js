@@ -5,6 +5,7 @@ export default styled.input`
   border: 1px var(--color-lightgrey) solid;
   border-radius: 8px;
   width: 100%;
+  height: 40px;
   padding: 6.5px;
   font-family: inherit;
   outline: none;

@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
+import { useState } from 'react'
+import { useHistory } from 'react-router'
 import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import LocationPerContinent from '../../LocationPerContinent.json'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
-import LocationPerContinent from '../../LocationPerContinent.json'
-import { useState } from 'react'
 
 export default function CreateForm({ onCreateTrip }) {
+  const { push } = useHistory()
   const all = LocationPerContinent
   const [continentInput, setContinentInput] = useState('Africa')
   const selectedContinent = all.find(
@@ -25,7 +27,7 @@ export default function CreateForm({ onCreateTrip }) {
           data-testid="select"
         >
           {all.map(({ continent }) => (
-            <option key={uuidv4()} name={continent} data-testid={continent}>
+            <option key={continent.id} name={continent} data-testid={continent}>
               {continent}
             </option>
           ))}
@@ -35,7 +37,7 @@ export default function CreateForm({ onCreateTrip }) {
         Location
         <Select required name="location">
           {selectedContinent.locations.map(city => (
-            <option key={uuidv4()}>{city}</option>
+            <option key={city}>{city}</option>
           ))}
         </Select>
       </label>
@@ -47,7 +49,7 @@ export default function CreateForm({ onCreateTrip }) {
         End date
         <Input required name="endDate" type="date" />
       </label>
-      <Button>Create Trip</Button>
+      <Button aria-label="submit-form">Create Trip</Button>
     </Form>
   )
 
@@ -65,6 +67,7 @@ export default function CreateForm({ onCreateTrip }) {
       sights: [],
     })
     form.reset()
+    push('/trips')
   }
 }
 

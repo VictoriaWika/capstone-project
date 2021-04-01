@@ -2,9 +2,10 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
+import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
 import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import Button from '../Button/Button'
-import { v4 as uuidv4 } from 'uuid'
 
 export default function TripCard({
   continent,
@@ -40,6 +41,7 @@ export default function TripCard({
         aria-label="toggle-details"
       >
         {!isVisible ? 'Show more' : 'Show less'}
+        {!isVisible ? <ArrowDown /> : <ArrowUp />}
       </ShowMoreButton>
       {isVisible && (
         <>
@@ -50,7 +52,7 @@ export default function TripCard({
           <FlexContainer>
             {sights.length
               ? sights.map(sight => (
-                  <div key={uuidv4()}>
+                  <div key={sight._id}>
                     <Image
                       src={sight.image}
                       width="250"
@@ -62,7 +64,10 @@ export default function TripCard({
                 ))
               : 'Add sights and they will be displayed here'}
           </FlexContainer>
-          <DeleteButton onClick={() => onDeleteTrip(id)}>
+          <DeleteButton
+            onClick={() => onDeleteTrip(id)}
+            aria-label="delete-trip"
+          >
             Delete trip
           </DeleteButton>
         </>
@@ -101,17 +106,20 @@ const DateWrapper = styled.div`
   justify-content: space-between;
   text-align: center;
 `
-const ShowMoreButton = styled(Button)`
-  margin: 0 auto;
-  background: transparent;
-  color: black;
-  width: 150px;
-`
 const AddButton = styled(Button)`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 10px 90px;
   align-items: center;
   text-decoration: none;
+`
+const ShowMoreButton = styled(Button)`
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  color: black;
+  width: 160px;
 `
 const DeleteButton = styled(Button)`
   display: inline;
@@ -122,8 +130,11 @@ const DeleteButton = styled(Button)`
 `
 const FlexContainer = styled.div`
   display: flex;
-  gap: 10px;
   overflow: scroll;
+
+  > div {
+    margin-right: 10px;
+  }
 `
 const Image = styled.img`
   height: auto;

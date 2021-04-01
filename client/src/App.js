@@ -28,38 +28,37 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <HomePage
-            open={open}
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
-            onSightRandomizer={sightRandomizer}
+            open={open}
             sights={sights}
           />
         </Route>
         <Route path="/liked">
           <LikePage
-            open={open}
-            likedPlaces={likedPlaces}
             handleAddLike={addLike}
+            likedPlaces={likedPlaces}
+            open={open}
             sights={sights}
           />
         </Route>
         <Route path="/search">
           <SearchPage
-            open={open}
             handleAddLike={addLike}
             likedPlaces={likedPlaces}
+            open={open}
             sights={sights}
           />
         </Route>
         <Route path="/create-trip">
-          <CreatePage open={open} handleCreateTrip={createTrip} />
+          <CreatePage handleCreateTrip={createTrip} open={open} />
         </Route>
         <Route path="/trips">
           <TripPage
-            open={open}
-            tripCards={tripCards}
-            setTripCards={setTripCards}
             handleDeleteTrip={deleteTrip}
+            open={open}
+            setTripCards={setTripCards}
+            tripCards={tripCards}
           />
         </Route>
         <Route
@@ -67,9 +66,8 @@ export default function App() {
           render={props => (
             <CityPage
               {...props}
-              open={open}
-              sights={sights}
               onAddSight={addSight}
+              sights={sights}
               tripCards={tripCards}
             />
           )}
@@ -94,7 +92,7 @@ export default function App() {
 
     let newSights
     if (currentSights.includes(sight)) {
-      newSights = currentSights.filter(item => item.name !== sight.name)
+      newSights = currentSights.filter(current => current.name !== sight.name)
     } else {
       newSights = [...currentSights, sight]
     }
@@ -112,12 +110,6 @@ export default function App() {
   function deleteTrip(currentId) {
     const filteredTripCards = tripCards.filter(card => card.id !== currentId)
     setTripCards(filteredTripCards)
-  }
-
-  function sightRandomizer() {
-    const sightsRandom = sights.sort(() => 0.5 - Math.random())
-    const randomSights = sightsRandom.slice(0, 5)
-    return randomSights
   }
 
   function addLike(name) {

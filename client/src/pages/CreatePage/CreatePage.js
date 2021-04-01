@@ -8,7 +8,7 @@ export default function CreatePage({ handleCreateTrip, open }) {
   return (
     <>
       <ScrollToTop />
-      {open === true && <Overlay />}
+      {open && <Overlay />}
       <Heading>Trips</Heading>
       <CreateForm onCreateTrip={handleCreateTrip} />
     </>

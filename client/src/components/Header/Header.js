@@ -1,11 +1,12 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import logo from '../../images/travelr_logo.png'
 
 export default function Header() {
   return (
-    <AppHeader>
+    <AppHeader as={NavLink} exact to="/" aria-label="home">
       <h1>
-        <img src={logo} alt="" width="100" height="100" />
+        <img src={logo} alt="Logo" width="100" height="100" />
       </h1>
     </AppHeader>
   )

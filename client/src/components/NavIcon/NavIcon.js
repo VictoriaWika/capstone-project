@@ -3,7 +3,11 @@ import styled from 'styled-components/macro'
 
 export default function NavIcon({ open, setOpen }) {
   return (
-    <StyledNavIcon open={open} onClick={() => setOpen(!open)}>
+    <StyledNavIcon
+      open={open}
+      onClick={() => setOpen(!open)}
+      aria-label="toggle-navigation"
+    >
       <div />
       <div />
       <div />
