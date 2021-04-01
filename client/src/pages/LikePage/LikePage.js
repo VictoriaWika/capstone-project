@@ -12,7 +12,8 @@ export default function LikePage({ handleAddLike, likedPlaces, open, sights }) {
     sight =>
       likedPlaces.includes(sight.name) &&
       (sight.name.toLowerCase().includes(userInput.toLowerCase().trim()) ||
-        sight.location.toLowerCase().includes(userInput.toLowerCase().trim()))
+        sight.location.toLowerCase().includes(userInput.toLowerCase().trim()) ||
+        sight.continent.toLowerCase().includes(userInput.toLowerCase().trim()))
   )
 
   return (

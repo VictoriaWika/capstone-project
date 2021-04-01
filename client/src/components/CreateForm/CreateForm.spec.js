@@ -1,17 +1,28 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CreateForm from './CreateForm'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('CreateForm', () => {
-  it('renders a form with three inputs and a button', () => {
-    render(<CreateForm />)
+  it('renders a form with four inputs and a button', () => {
+    render(
+      <MemoryRouter>
+        <CreateForm />
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('Continent')).toBeInTheDocument()
     expect(screen.getByLabelText('Location')).toBeInTheDocument()
     expect(screen.getByLabelText('Start date')).toBeInTheDocument()
     expect(screen.getByLabelText('End date')).toBeInTheDocument()
     expect(screen.getByRole('button')).toBeInTheDocument()
   })
-  it('renders three required input fields', () => {
-    render(<CreateForm />)
+  it('renders four required input fields', () => {
+    render(
+      <MemoryRouter>
+        <CreateForm />
+      </MemoryRouter>
+    )
+    expect(screen.getByLabelText('Continent')).toBeRequired()
     expect(screen.getByLabelText('Location')).toBeRequired()
     expect(screen.getByLabelText('Start date')).toBeRequired()
     expect(screen.getByLabelText('End date')).toBeRequired()
@@ -19,22 +30,33 @@ describe('CreateForm', () => {
 
   it('selects the right option', () => {
     const callback = jest.fn()
-    render(<CreateForm onCreateTrip={callback} />)
-    userEvent.selectOptions(screen.getByTestId('select'), ['New York'])
-    expect(screen.getByTestId('New York').selected).toBe(true)
+    render(
+      <MemoryRouter>
+        <CreateForm onCreateTrip={callback} />
+      </MemoryRouter>
+    )
+    userEvent.selectOptions(screen.getByTestId('select'), ['Asia'])
+    expect(screen.getByTestId('Asia').selected).toBe(true)
   })
 
   it('calls onCreateTrip with form data', () => {
     const callback = jest.fn()
-    render(<CreateForm onCreateTrip={callback} />)
-    userEvent.type(screen.getByLabelText('Location'), 'Lisbon')
+    render(
+      <MemoryRouter>
+        <CreateForm onCreateTrip={callback} />
+      </MemoryRouter>
+    )
+    userEvent.type(screen.getByLabelText('Continent'), 'Africa')
+    userEvent.type(screen.getByLabelText('Location'), 'Cape Town')
     userEvent.type(screen.getByLabelText('Start date'), '2021-03-25')
     userEvent.type(screen.getByLabelText('End date'), '2021-03-30')
     userEvent.click(screen.getByRole('button'))
     expect(callback).toHaveBeenCalledTimes(1)
     expect(callback).toHaveBeenCalledWith({
+      continent: '',
       location: '',
       id: 'random number',
+      sights: [],
       startDate: '2021-03-25',
       endDate: '2021-03-30',
     })
