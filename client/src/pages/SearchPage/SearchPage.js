@@ -63,6 +63,7 @@ SearchPage.propTypes = {
   likedPlaces: PropTypes.array,
   handleAddLike: PropTypes.func,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`

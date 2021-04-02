@@ -78,12 +78,12 @@ export default function TripCard({
 
 TripCard.propTypes = {
   continent: PropTypes.string,
-  location: PropTypes.string,
+  endDate: PropTypes.string,
   id: PropTypes.string,
+  location: PropTypes.string,
+  onDeleteTrip: PropTypes.func,
   sights: PropTypes.array,
   startDate: PropTypes.string,
-  endDate: PropTypes.string,
-  onDeleteTrip: PropTypes.func,
 }
 
 const Card = styled.div`

@@ -56,8 +56,8 @@ export default function HomePage({ handleAddLike, likedPlaces, open, sights }) {
 HomePage.propTypes = {
   handleAddLike: PropTypes.func,
   likedPlaces: PropTypes.array,
-  onrandomizeSights: PropTypes.func,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`

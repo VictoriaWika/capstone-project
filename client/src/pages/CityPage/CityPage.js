@@ -45,8 +45,8 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
 }
 
 CityPage.propTypes = {
-  sights: PropTypes.array,
   onAddSight: PropTypes.func,
+  sights: PropTypes.array,
   tripCards: PropTypes.array,
 }
 

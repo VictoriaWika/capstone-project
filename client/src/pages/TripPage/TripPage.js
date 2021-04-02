@@ -42,9 +42,10 @@ export default function TripPage({
 }
 
 TripPage.propTypes = {
-  tripCards: PropTypes.array,
-  setTripCards: PropTypes.func,
   handleDeleteTrip: PropTypes.func,
+  open: PropTypes.bool,
+  setTripCards: PropTypes.func,
+  tripCards: PropTypes.array,
 }
 
 const PageLayout = styled.div`

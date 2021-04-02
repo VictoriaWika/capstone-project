@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../../components/Button/Button'
 import { ReactComponent as AfricaSVG } from '../../icons/africa.svg'
@@ -101,6 +102,12 @@ export default function ContinentFilter({
     </>
   )
 }
+
+ContinentFilter.propTypes = {
+  filteredContinents: PropTypes.string,
+  setFilteredContinents: PropTypes.func,
+}
+
 const Africa = styled.div`
   position: absolute;
   bottom: 69px;

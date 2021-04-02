@@ -44,10 +44,10 @@ export default function LikePage({ handleAddLike, likedPlaces, open, sights }) {
 }
 
 LikePage.propTypes = {
-  sights: PropTypes.array,
   handleAddLike: PropTypes.func,
   likedPlaces: PropTypes.array,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`
