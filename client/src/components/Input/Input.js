@@ -8,10 +8,11 @@ export default styled.input`
   height: 40px;
   padding: 6.5px;
   font-family: inherit;
-  outline: none;
+  outline: none !important;
 
   &:focus {
     border-color: rgba(116, 235, 213, 0.5);
     box-shadow: 0 0 0 4px rgba(116, 235, 213, 0.1);
+    outline: none !important;
   }
 `
