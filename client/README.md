@@ -1,11 +1,11 @@
 # Travelr
 
 <img src="./src/icons/travelers.svg" align="right" width="150">
-Discover new places and plan your next big adventure with Travelr!
 
-Get random suggestions for sights, give them a like and search the world!
-
-Add your favorite sights to your travel plan, so you can show them to your friends later on!
+Wanderlust? Plan your next big adventure with Travelr! 
+Get inspired by remarkable sights, give them a like and search the world. 
+Pick the location of your choice and browse through the sights. 
+Add the ones you like and save them to your trip. Start exploring the world!
 
 [Take a sneak peek at the App right here!](https://victoria-capstone-project.herokuapp.com/)
 
