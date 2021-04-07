@@ -9,6 +9,10 @@ Add your favorite sights to your travel plan, so you can show them to your frien
 
 [Take a sneak peek at the App right here!](https://victoria-capstone-project.herokuapp.com/)
 
+## Preview
+
+![Travelr Weiss](https://user-images.githubusercontent.com/77288909/113831522-fca54200-9787-11eb-8b60-1c18be794158.png)
+
 ## Installation and usage
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
