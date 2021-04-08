@@ -50,7 +50,7 @@ describe('TripCard', () => {
         location="Cape Town"
         startDate="2021-03-15"
         endDate="2021-03-24"
-        onDeleteTrip={callback}
+        deleteTrip={callback}
         sights={sights}
       />,
       { wrapper: MemoryRouter }

@@ -27,24 +27,30 @@ const likedPlaces = [
 ]
 
 describe('AttractionCard', () => {
-  it('renders name and an image', () => {
+  it('renders name, location, continent and an image', () => {
     render(
       <AttractionCard
-        name="Alfama"
+        name="Table Mountain"
         image={imageFile}
         likedPlaces={likedPlaces}
+        location="Cape Town"
+        continent="Africa"
       />
     )
-    expect(screen.getByText('Alfama')).toBeInTheDocument()
+    expect(screen.getByText('Table Mountain')).toBeInTheDocument()
+    expect(screen.getByText(/Cape Town/)).toBeInTheDocument()
+    expect(screen.getByText(/Africa/)).toBeInTheDocument()
     expect(screen.getByRole('img')).toBeInTheDocument()
   })
 
   it('renders a span element with role button', () => {
     render(
       <AttractionCard
-        name="Alfama"
+        name="Table Mountain"
         image={imageFile}
         likedPlaces={likedPlaces}
+        location="Cape Town"
+        continent="Africa"
       />
     )
     expect(
@@ -56,14 +62,31 @@ describe('AttractionCard', () => {
     const callback = jest.fn()
     render(
       <AttractionCard
-        name="Alfama"
+        name="Table Mountain"
         image={imageFile}
         onAddLike={callback}
         likedPlaces={likedPlaces}
+        location="Cape Town"
+        continent="Africa"
       />
     )
     const likeButton = screen.getByRole('button', { name: 'toggle-like' })
     userEvent.click(likeButton)
     expect(callback).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders a button with text show more', () => {
+    render(
+      <AttractionCard
+        name="Table Mountain"
+        image={imageFile}
+        likedPlaces={likedPlaces}
+        location="Cape Town"
+        continent="Africa"
+      />
+    )
+    expect(
+      screen.getByRole('button', { name: 'toggle-details' })
+    ).toBeInTheDocument()
   })
 })

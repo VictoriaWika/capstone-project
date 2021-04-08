@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom'
 import Header from './Header'
 
 describe('Header', () => {
-  it('renders a header with an image', () => {
+  it('renders a header with an image and a link', () => {
     render(<Header />, { wrapper: MemoryRouter })
     expect(screen.getByRole('img')).toBeInTheDocument()
     expect(screen.getByRole('link')).toBeInTheDocument()

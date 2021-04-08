@@ -22,7 +22,7 @@ export default function AttractionCard({
   const [isVisible, setIsVisible] = useState(false)
   const region = location + ', ' + continent
   return (
-    <Card key={name}>
+    <Card>
       <LikeButton
         role="button"
         aria-label="toggle-like"

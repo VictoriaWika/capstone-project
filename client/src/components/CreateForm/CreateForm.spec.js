@@ -2,6 +2,8 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import CreateForm from './CreateForm'
 import { MemoryRouter } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
+jest.mock('uuid')
 
 describe('CreateForm', () => {
   it('renders a form with four inputs and a button', () => {
@@ -46,6 +48,7 @@ describe('CreateForm', () => {
         <CreateForm onCreateTrip={callback} />
       </MemoryRouter>
     )
+    uuidv4.mockImplementation(() => 'testid')
     userEvent.type(screen.getByLabelText('Continent'), 'Africa')
     userEvent.type(screen.getByLabelText('Location'), 'Cape Town')
     userEvent.type(screen.getByLabelText('Start date'), '2021-03-25')
@@ -55,7 +58,7 @@ describe('CreateForm', () => {
     expect(callback).toHaveBeenCalledWith({
       continent: '',
       location: '',
-      id: 'random number',
+      id: 'testid',
       sights: [],
       startDate: '2021-03-25',
       endDate: '2021-03-30',
