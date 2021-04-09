@@ -41,21 +41,4 @@ describe('TripCard', () => {
     expect(screen.getByText('2021-03-24')).toBeInTheDocument()
     expect(screen.getByText('Show more')).toBeInTheDocument()
   })
-
-  it('calls onDeleteTrip when clicked', () => {
-    const callback = jest.fn()
-    render(
-      <TripCard
-        continent="Africa"
-        location="Cape Town"
-        startDate="2021-03-15"
-        endDate="2021-03-24"
-        deleteTrip={callback}
-        sights={sights}
-      />,
-      { wrapper: MemoryRouter }
-    )
-    userEvent.click(screen.getByRole('button'))
-    expect(callback).toHaveBeenCalledTimes(1)
-  })
 })
