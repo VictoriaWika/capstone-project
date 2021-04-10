@@ -7,7 +7,7 @@ describe('Create Trip, add sights and delete trip', {
 }, 
 () => {
   before(() => {
-    cy.visit('/create-trip')
+    cy.visit('/create-trip') 
   })
 
   it('renders two select, two input fields and a button', () => {
@@ -37,12 +37,13 @@ describe('Create Trip, add sights and delete trip', {
   })
 
   it('focuses on the delete button and deletes the trip', () => {
-    cy.get('button[aria-label="delete-trip"]').focus().click()
+    cy.get('button[aria-label="delete-trip"]').focus().should('have.focus')
+    cy.get('button[aria-label="delete-trip"]').click()
   })
 
   it('navigates back to the CreateForm, once trip is deleted', () => {
     cy.get('a[aria-label="your-trips"]').should('have.class', 'active')
-    cy.get('a[aria-label="plan-trip"]').should('have.attr', 'href')
+    cy.get('a[aria-label="plan-trip"]').should('have.attr', 'href').and('equal', '/create-trip')
     cy.get('a[aria-label="plan-trip"]').click()
     cy.url().should('include', '/create-trip')
   })
