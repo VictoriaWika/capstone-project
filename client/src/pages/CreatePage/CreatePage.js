@@ -24,7 +24,8 @@ const PageLayout = styled.div`
   display: grid;
   margin-top: 80px;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
+  font-size: 27px;
   position: fixed;
   background: var(--color-white);
   top: 18px;

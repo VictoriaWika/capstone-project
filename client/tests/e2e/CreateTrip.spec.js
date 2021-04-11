@@ -1,11 +1,7 @@
 /// <reference types="Cypress" />
 
-describe('Create Trip, add sights and delete trip', {
-  browser: 'firefox',
-  viewportWidth: 375,
-  viewportHeight: 667,
-}, 
-() => {
+describe('Create Trip, add sights and delete trip', () => {
+  
   before(() => {
     cy.visit('/create-trip') 
   })

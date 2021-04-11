@@ -20,74 +20,68 @@ export default function ContinentFilter({
             onClick={() => {
               setFilteredContinents('Africa')
             }}
+            aria-label="africa-filter"
             fill={
               filteredContinents === 'Africa'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            Africa
-          </AfricaSVG>
+          />
         </Africa>
         <Asia>
           <AsiaSVG
             onClick={() => setFilteredContinents('Asia')}
+            aria-label="asia-filter"
             fill={
               filteredContinents === 'Asia'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            Asia
-          </AsiaSVG>
+          />
         </Asia>
         <Europe>
           <EuropeSVG
             onClick={() => setFilteredContinents('Europe')}
+            aria-label="europe-filter"
             fill={
               filteredContinents === 'Europe'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            Europe
-          </EuropeSVG>
+          />
         </Europe>
         <NorthAmerica>
           <NorthAmericaSVG
             onClick={() => setFilteredContinents('North America')}
+            aria-label="north-america-filter"
             fill={
               filteredContinents === 'North America'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            North America
-          </NorthAmericaSVG>
+          />
         </NorthAmerica>
         <Oceania>
           <OceaniaSVG
             onClick={() => setFilteredContinents('Oceania')}
+            aria-label="oceania-filter"
             fill={
               filteredContinents === 'Oceania'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            Oceania
-          </OceaniaSVG>
+          />
         </Oceania>
         <SouthAmerica>
           <SouthAmericaSVG
             onClick={() => setFilteredContinents('South America')}
+            aria-label="south-america-filter"
             fill={
               filteredContinents === 'South America'
                 ? 'var(--color-turquoise)'
                 : 'var(--color-lightgrey)'
             }
-          >
-            South America
-          </SouthAmericaSVG>
+          />
         </SouthAmerica>
       </ButtonWrapper>
       <SelectedContinent>{filteredContinents}</SelectedContinent>

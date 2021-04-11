@@ -56,6 +56,7 @@ const PageLayout = styled.div`
   justify-content: center;
   margin-top: 20px;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
   margin-bottom: 0;
+  font-size: 27px;
 `

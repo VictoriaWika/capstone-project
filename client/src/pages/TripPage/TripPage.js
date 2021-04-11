@@ -54,7 +54,8 @@ const PageLayout = styled.div`
   justify-content: center;
   margin-top: 140px;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
+  font-size: 27px;
   position: fixed;
   background: var(--color-white);
   top: 18px;
