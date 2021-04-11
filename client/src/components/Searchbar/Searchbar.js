@@ -23,10 +23,6 @@ export default function Searchbar({ userInput, setUserInput, text }) {
       </Label>
     </Form>
   )
-
-  // function handleSubmit(event) {
-  //   event.preventDefault()
-  // }
 }
 
 Searchbar.propTypes = {
