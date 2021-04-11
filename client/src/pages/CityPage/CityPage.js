@@ -45,8 +45,8 @@ export default function CityPage({ onAddSight, sights, tripCards }) {
 }
 
 CityPage.propTypes = {
-  sights: PropTypes.array,
   onAddSight: PropTypes.func,
+  sights: PropTypes.array,
   tripCards: PropTypes.array,
 }
 
@@ -55,8 +55,9 @@ const PageLayout = styled.div`
   gap: 16px;
   justify-content: center;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
   margin: 40px 0 0;
+  font-size: 27px;
 `
 const AddButton = styled(Button)`
   position: relative;

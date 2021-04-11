@@ -44,6 +44,7 @@ export default function Navigation({ open, setOpen }) {
 
 Navigation.propTypes = {
   open: PropTypes.bool,
+  setOpen: PropTypes.func,
 }
 
 const Nav = styled.nav`

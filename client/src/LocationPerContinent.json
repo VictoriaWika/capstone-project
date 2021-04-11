@@ -1,11 +1,11 @@
 [
   {
-    "id": "a1",
+    "id": "1",
     "continent": "Africa",
     "locations": ["Cape Town", "Fes", "Johannesburg", "Marrakech", "Kenya"]
   },
   {
-    "id": "a2",
+    "id": "2",
     "continent": "Asia",
     "locations": [
       "Abu Dhabi",
@@ -32,7 +32,7 @@
     ]
   },
   {
-    "id": "a3",
+    "id": "3",
     "continent": "Europe",
     "locations": [
       "Amsterdam",
@@ -77,7 +77,7 @@
     ]
   },
   {
-    "id": "a4",
+    "id": "4",
     "continent": "North America",
     "locations": [
       "Aspen",
@@ -155,7 +155,7 @@
     ]
   },
   {
-    "id": "a5",
+    "id": "5",
     "continent": "Oceania",
     "locations": [
       "French Polynesia",
@@ -171,7 +171,7 @@
     ]
   },
   {
-    "id": "a6",
+    "id": "6",
     "continent": "South America",
     "locations": [
       "Buenos Aires",

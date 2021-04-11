@@ -63,6 +63,7 @@ SearchPage.propTypes = {
   likedPlaces: PropTypes.array,
   handleAddLike: PropTypes.func,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`
@@ -76,6 +77,7 @@ const PageLayout = styled.div`
     gap: 16px;
   }
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
   margin-bottom: 0;
+  font-size: 27px;
 `

@@ -12,7 +12,8 @@ export default function LikePage({ handleAddLike, likedPlaces, open, sights }) {
     sight =>
       likedPlaces.includes(sight.name) &&
       (sight.name.toLowerCase().includes(userInput.toLowerCase().trim()) ||
-        sight.location.toLowerCase().includes(userInput.toLowerCase().trim()))
+        sight.location.toLowerCase().includes(userInput.toLowerCase().trim()) ||
+        sight.continent.toLowerCase().includes(userInput.toLowerCase().trim()))
   )
 
   return (
@@ -43,10 +44,10 @@ export default function LikePage({ handleAddLike, likedPlaces, open, sights }) {
 }
 
 LikePage.propTypes = {
-  sights: PropTypes.array,
   handleAddLike: PropTypes.func,
   likedPlaces: PropTypes.array,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`
@@ -55,6 +56,7 @@ const PageLayout = styled.div`
   justify-content: center;
   margin-top: 20px;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
   margin-bottom: 0;
+  font-size: 27px;
 `

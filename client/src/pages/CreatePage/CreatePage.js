@@ -6,12 +6,12 @@ import ScrollToTop from '../../services/ScrollToTop'
 
 export default function CreatePage({ handleCreateTrip, open }) {
   return (
-    <>
+    <PageLayout>
       <ScrollToTop />
       {open && <Overlay />}
       <Heading>Trips</Heading>
       <CreateForm onCreateTrip={handleCreateTrip} />
-    </>
+    </PageLayout>
   )
 }
 
@@ -20,6 +20,16 @@ CreatePage.propTypes = {
   open: PropTypes.bool,
 }
 
-const Heading = styled.h2`
-  margin-top: 40px;
+const PageLayout = styled.div`
+  display: grid;
+  margin-top: 80px;
+`
+const Heading = styled.h1`
+  font-size: 27px;
+  position: fixed;
+  background: var(--color-white);
+  top: 18px;
+  left: 0;
+  padding: 20px;
+  width: 100vw;
 `

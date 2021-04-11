@@ -56,8 +56,8 @@ export default function HomePage({ handleAddLike, likedPlaces, open, sights }) {
 HomePage.propTypes = {
   handleAddLike: PropTypes.func,
   likedPlaces: PropTypes.array,
-  onrandomizeSights: PropTypes.func,
   open: PropTypes.bool,
+  sights: PropTypes.array,
 }
 
 const PageLayout = styled.div`
@@ -66,7 +66,8 @@ const PageLayout = styled.div`
   justify-content: center;
   margin-top: 20px;
 `
-const Heading = styled.h2`
+const Heading = styled.h1`
+  font-size: 27px;
   margin-bottom: 0;
   width: 335px;
 `

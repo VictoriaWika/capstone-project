@@ -16,8 +16,8 @@ export default function NavIcon({ open, setOpen }) {
 }
 
 NavIcon.propTypes = {
-  open: PropTypes.bool.isRequired,
-  setOpen: PropTypes.func.isRequired,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
 }
 const StyledNavIcon = styled.button`
   position: fixed;

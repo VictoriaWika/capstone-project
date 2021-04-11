@@ -23,6 +23,7 @@ export default function Searchbar({ userInput, setUserInput, text }) {
 Searchbar.propTypes = {
   userInput: PropTypes.string,
   setUserInput: PropTypes.func,
+  text: PropTypes.string,
 }
 
 const Form = styled.form`

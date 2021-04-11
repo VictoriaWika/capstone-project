@@ -43,10 +43,11 @@ export default function AttractionCard({
 }
 
 AttractionCard.propTypes = {
-  name: PropTypes.string,
+  continent: PropTypes.string,
+  description: PropTypes.string,
   image: PropTypes.string,
-  onAddLike: PropTypes.func,
-  likedPlaces: PropTypes.array,
+  location: PropTypes.string,
+  name: PropTypes.string,
 }
 
 const Card = styled.div`
