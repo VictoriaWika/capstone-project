@@ -5,10 +5,4 @@ export default {
   component: Header,
 }
 
-const DefaultHeader = args => <Header {...args} />
-
-export const PrimaryHeader = DefaultHeader.bind({})
-
-PrimaryHeader.args = {
-  title: 'Travelr',
-}
+export const  DefaultHeader = () => <Header/>

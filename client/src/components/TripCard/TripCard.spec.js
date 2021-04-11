@@ -1,28 +1,6 @@
 import { render, screen } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import TripCard from './TripCard'
 import { MemoryRouter } from 'react-router-dom'
-
-const sights = [
-  {
-    _id: '60606967f279720b8dc50460',
-    name: 'Table Mountain',
-    description:
-      'Cape Town’s Table Mountain National Park, which hugs the perimeter of ...',
-    image: 'https://testURL',
-    location: 'Cape Town',
-    continent: 'Africa',
-  },
-  {
-    _id: '60606967f279720b8dc50461',
-    name: 'Kirstenbosch National Botanical Garden',
-    description:
-      'Founded in 1913, this famous botanical garden was the first in the wor...',
-    image: 'https://testURL',
-    location: 'Cape Town',
-    continent: 'Africa',
-  },
-]
 
 describe('TripCard', () => {
   it('renders location, continent, start and end date and show more button', () => {
