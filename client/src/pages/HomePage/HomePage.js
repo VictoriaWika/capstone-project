@@ -6,13 +6,7 @@ import Button from '../../components/Button/Button'
 import Overlay from '../../components/Overlay/Overlay'
 import ScrollToTop from '../../services/ScrollToTop'
 
-export default function HomePage({
-  error,
-  handleAddLike,
-  likedPlaces,
-  open,
-  sights,
-}) {
+export default function HomePage({ handleAddLike, likedPlaces, open, sights }) {
   const [randomSights, setRandomSights] = useState([])
   useEffect(() => {
     randomizeSights()
@@ -24,11 +18,6 @@ export default function HomePage({
       <ScrollToTop />
       {open && <Overlay />}
       <Heading>Discover the world</Heading>
-      {error && (
-        <div style={{ color: `red` }}>
-          an error occurred, while fetching data from the server
-        </div>
-      )}
       {randomSights.map(sight => (
         <AttractionCard
           key={sight._id}
