@@ -45,9 +45,7 @@ export default function HomePage({ handleAddLike, likedPlaces, open, sights }) {
   )
 
   function randomizeSights() {
-    const sightsRandom = JSON.parse(JSON.stringify(sights)).sort(
-      () => 0.5 - Math.random()
-    )
+    const sightsRandom = sights.sort(() => 0.5 - Math.random())
     const randomSights = sightsRandom.slice(0, 5)
     setRandomSights(randomSights)
   }
