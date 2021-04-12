@@ -2,5 +2,7 @@
     "explorer.compactFolders": false,
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
-    "editor.linkedEditing": true
+    "editor.linkedEditing": true,
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
