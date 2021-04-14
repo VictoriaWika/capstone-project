@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
-import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
-import { ReactComponent as LikeSVG } from '../../icons/liked.svg'
-import { ReactComponent as UnlikeSVG } from '../../icons/unliked.svg'
+import { ReactComponent as ArrowDown } from '../../assets/icons/arrow-down.svg'
+import { ReactComponent as ArrowUp } from '../../assets/icons/arrow-up.svg'
+import { ReactComponent as LikeSVG } from '../../assets/icons/liked.svg'
+import { ReactComponent as UnlikeSVG } from '../../assets/icons/unliked.svg'
 import Button from '../Button/Button'
 
 const like = <LikeSVG />

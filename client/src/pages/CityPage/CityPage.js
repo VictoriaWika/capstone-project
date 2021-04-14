@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
+import { ReactComponent as CheckSVG } from '../../assets/icons/check.svg'
+import { ReactComponent as PlusSVG } from '../../assets/icons/plus.svg'
 import AttractionCard from '../../components/AttractionCardSecondary/AttractionCard.js'
 import Button from '../../components/Button/Button'
 import GoBackButton from '../../components/GoBackButton/GoBackButton'
-import { ReactComponent as CheckSVG } from '../../icons/check.svg'
-import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
 import ScrollToTop from '../../services/ScrollToTop'
 
 export default function CityPage({ onAddSight, sights, tripCards }) {

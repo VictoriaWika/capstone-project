@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import { ReactComponent as AfricaSVG } from '../../assets/icons/africa.svg'
+import { ReactComponent as AsiaSVG } from '../../assets/icons/asia.svg'
+import { ReactComponent as EuropeSVG } from '../../assets/icons/europe.svg'
+import { ReactComponent as NorthAmericaSVG } from '../../assets/icons/north-america.svg'
+import { ReactComponent as OceaniaSVG } from '../../assets/icons/oceania.svg'
+import { ReactComponent as SouthAmericaSVG } from '../../assets/icons/south-america.svg'
 import Button from '../../components/Button/Button'
-import { ReactComponent as AfricaSVG } from '../../icons/africa.svg'
-import { ReactComponent as AsiaSVG } from '../../icons/asia.svg'
-import { ReactComponent as EuropeSVG } from '../../icons/europe.svg'
-import { ReactComponent as NorthAmericaSVG } from '../../icons/north-america.svg'
-import { ReactComponent as OceaniaSVG } from '../../icons/oceania.svg'
-import { ReactComponent as SouthAmericaSVG } from '../../icons/south-america.svg'
 
 export default function ContinentFilter({
   filteredContinents,

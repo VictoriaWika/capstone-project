@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import styled from 'styled-components/macro'
-import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
-import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
+import { ReactComponent as ArrowDown } from '../../assets/icons/arrow-down.svg'
+import { ReactComponent as ArrowUp } from '../../assets/icons/arrow-up.svg'
 import Button from '../Button/Button'
 
 export default function AttractionCard({

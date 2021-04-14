@@ -1,17 +1,19 @@
 # Travelr
 
-<img src="./client/src/icons/travelers.svg" align="right" width="150">
+<img src="./client/src/assets/icons/travelers.svg" align="right" width="150">
 
-Wanderlust? Plan your next big adventure with Travelr! 
-Get inspired by remarkable sights, give them a like and search the world. 
-Pick the location of your choice and browse through the sights. 
+Wanderlust? Plan your next big adventure with Travelr!
+Get inspired by remarkable sights, give them a like and search the world.
+Pick the location of your choice and browse through the sights.
 Add the ones you like and save them to your trip. Start exploring the world!
 
-[Take a sneak peek at the App right here!](https://victoria-capstone-project.herokuapp.com/)
+[Get a look at the App right here!](https://victoria-capstone-project.herokuapp.com/)
 
 ## Preview
 
 ![Travelr Weiss](https://user-images.githubusercontent.com/77288909/113831522-fca54200-9787-11eb-8b60-1c18be794158.png)
+
+<img src="./client/src/assets/Victoria_Wika_Travelr.gif" width="200" />
 
 ## Installation and usage
 
@@ -48,4 +50,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-## Now go and have fun discovering the world! <img src="./client/src/icons/map.svg" width="40">
+## Now go and have fun discovering the world! <img src="./client/src/assets/icons/map.svg" width="40">

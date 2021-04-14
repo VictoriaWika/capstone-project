@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import logo from '../../images/travelr_logo.png'
+import logo from '../../assets/images/travelr_logo.png'
 
 export default function Header() {
   return (

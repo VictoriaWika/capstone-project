@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
-import { ReactComponent as SearchSVG } from '../../icons/search.svg'
-import { ReactComponent as CrossSVG } from '../../icons/cross.svg'
+import { ReactComponent as CrossSVG } from '../../assets/icons/cross.svg'
+import { ReactComponent as SearchSVG } from '../../assets/icons/search.svg'
 import Input from '../Input/Input'
 
 export default function Searchbar({ userInput, setUserInput, text }) {
@@ -43,12 +43,12 @@ const SearchInput = styled(Input)`
   padding-left: 40px;
 `
 const SearchIcon = styled.span`
-    position: absolute;
-    top: 9px;
-    left: 10px;
+  position: absolute;
+  top: 9px;
+  left: 10px;
 `
 const DeleteInput = styled.span`
-    position: absolute;
-    top: 9px;
-    right: 10px;
+  position: absolute;
+  top: 9px;
+  right: 10px;
 `
