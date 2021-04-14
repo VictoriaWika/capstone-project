@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components/macro'
-import { ReactComponent as ArrowDown } from '../../icons/arrow-down.svg'
-import { ReactComponent as ArrowUp } from '../../icons/arrow-up.svg'
-import { ReactComponent as PlusSVG } from '../../icons/plus.svg'
+import { ReactComponent as ArrowDown } from '../../assets/icons/arrow-down.svg'
+import { ReactComponent as ArrowUp } from '../../assets/icons/arrow-up.svg'
+import { ReactComponent as PlusSVG } from '../../assets/icons/plus.svg'
 import Button from '../Button/Button'
 
 export default function TripCard({
