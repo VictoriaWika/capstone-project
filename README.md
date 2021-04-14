@@ -13,7 +13,7 @@ Add the ones you like and save them to your trip. Start exploring the world!
 
 ![Travelr Weiss](https://user-images.githubusercontent.com/77288909/113831522-fca54200-9787-11eb-8b60-1c18be794158.png)
 
-<img src="./client/src/assets/Victoria_Wika_Travelr.gif" width="200" />
+<img src="./client/src/assets/Victoria_Wika_Travelr.gif" width="375" />
 
 ## Installation and usage
 
